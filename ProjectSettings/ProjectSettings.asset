@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: LemonSpirit
+  companyName: BlophyNovaTeam
   productName: Blophy
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -145,7 +145,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 0.0.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -166,7 +166,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: net.blophy.legacy
+    Android: net.blophy
     Standalone: com.DefaultCompany.2DProject
   buildNumber:
     Standalone: 0
@@ -895,7 +895,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    Game Performance: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -909,11 +915,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: d0bc5d89-71d5-4a82-82f7-6ad2c4a57262
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Blophy
+  organizationId: niubility748
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
