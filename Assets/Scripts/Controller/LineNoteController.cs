@@ -171,7 +171,7 @@ public class LineNoteController : MonoBehaviour
     /// <param name="notes">音符列表</param>
     /// <returns>索引</returns>
     static int FindMissNote(List<NoteController> notes)
-    {
+    {   
         return Algorithm.BinarySearch(notes, m => ProgressManager.Instance.CurrentTime >= m.thisNote.EndTime, false);
         //寻找已经出现的音符中有没有Miss掉的音符
     }
