@@ -2576,6 +2576,7 @@ GameObject:
   - component: {fileID: 1333225945}
   - component: {fileID: 1333225944}
   - component: {fileID: 1333225943}
+  - component: {fileID: 1333225946}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -2667,7 +2668,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c33609c2b45fa9a409587d2b6d3cac67, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6f09f046b1200e047afc3736c2079456, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2685,6 +2686,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333225941}
   m_CullTransparentMesh: 1
+--- !u!114 &1333225946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333225941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7844e3eed73134245b36c6b7692abe4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisButton: {fileID: 1333225943}
 --- !u!1 &1526527559
 GameObject:
   m_ObjectHideFlags: 0
@@ -2697,6 +2711,7 @@ GameObject:
   - component: {fileID: 1526527563}
   - component: {fileID: 1526527562}
   - component: {fileID: 1526527561}
+  - component: {fileID: 1526527564}
   m_Layer: 0
   m_Name: Front
   m_TagString: Untagged
@@ -2798,6 +2813,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &1526527564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526527559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7844e3eed73134245b36c6b7692abe4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
 --- !u!1 &1633488952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3462,7 +3490,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 715529340}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -22,7 +22,7 @@ public class GlobalData : MonoBehaviourSingleton<GlobalData>
     public Sprite currentCP;
     public Sprite currentCPH;
     public Grade score;
-    public bool isAutoplay = false;
+    public bool isAutoplay = true;
     public float offset;
     public int ScreenWidth => main.pixelWidth;
     public int ScreenHeight => main.pixelHeight;
