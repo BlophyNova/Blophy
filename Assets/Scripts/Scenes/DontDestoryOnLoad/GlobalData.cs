@@ -26,6 +26,7 @@ public class GlobalData : MonoBehaviourSingleton<GlobalData>
     public float offset;
     public int ScreenWidth => main.pixelWidth;
     public int ScreenHeight => main.pixelHeight;
+    public string WhereToEnterSettings;
     protected override void OnAwake()
     {
         DontDestroyOnLoad(gameObject);

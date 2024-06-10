@@ -9,6 +9,7 @@ public class SelectMusic_Settings : Public_Button
 {
     private void Start()
     {
+        GlobalData.Instance.WhereToEnterSettings = "SelectMusic";
         thisButton.onClick.AddListener(() => Loading_Controller.Instance.SetLoadSceneByName("Settings").StartLoad());
     }
 }
