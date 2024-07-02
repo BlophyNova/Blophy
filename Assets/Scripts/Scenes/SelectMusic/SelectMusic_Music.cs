@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class SelectMusic_Music : MonoBehaviour
+namespace Scenes.SelectMusic
 {
-    public RectTransform rectTransform;
-    private void Start()
+    public class SelectMusicMusic : MonoBehaviour
     {
-        //rectTransform.sizeDelta = new(GlobalData.Instance.ScreenWidth, GlobalData.Instance.ScreenHeight);
+        public RectTransform rectTransform;
+        private void Start()
+        {
+            //rectTransform.sizeDelta = new(GlobalData.Instance.ScreenWidth, GlobalData.Instance.ScreenHeight);
+        }
     }
 }

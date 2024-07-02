@@ -1,16 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+using Scenes.Loading;
+using Scenes.PublicScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-public class Title_TouchToStart : Public_Button
+namespace Scenes.Title
 {
-    private void Start()
+    public class TitleTouchToStart : PublicButton
     {
-        SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive).completed += (AsyncOperation a) =>
-        Loading_Controller.Instance.SetLoadSceneByName("SelectChapter");
+        private void Start()
+        {
+            SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive).completed += (AsyncOperation a) =>
+                LoadingController.Instance.SetLoadSceneByName("SelectChapter");
 
-        thisButton.onClick.AddListener(() => Loading_Controller.Instance.StartLoad());
+            thisButton.onClick.AddListener(() => LoadingController.Instance.StartLoad());
+        }
     }
 }

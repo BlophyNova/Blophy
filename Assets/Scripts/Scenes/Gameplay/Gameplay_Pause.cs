@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class Gameplay_Pause : Public_Button
+using Manager;
+using Scenes.PublicScripts;
+namespace Scenes.Gameplay
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GameplayPause : PublicButton
     {
-        thisButton.onClick.AddListener(() =>
+        // Start is called before the first frame update
+        private void Start()
         {
-            ProgressManager.Instance.PausePlay();
-            SpeckleManager.Instance.enabled = false;
-            UIManager.Instance.pauseCanvas.gameObject.SetActive(true);
-        });
+            thisButton.onClick.AddListener(() =>
+            {
+                ProgressManager.Instance.PausePlay();
+                SpeckleManager.Instance.enabled = false;
+                UIManager.Instance.pauseCanvas.gameObject.SetActive(true);
+            });
+        }
     }
 }

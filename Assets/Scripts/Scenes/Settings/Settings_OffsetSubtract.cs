@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using Scenes.DontDestoryOnLoad;
+using Scenes.PublicScripts;
 using TMPro;
-using UnityEngine;
-
-public class Settings_OffsetSubtract : Public_Button
+namespace Scenes.Settings
 {
-    public TextMeshProUGUI offsetText;
-    // Start is called before the first frame update
-    void Start()
+    public class SettingsOffsetSubtract : PublicButton
     {
-        thisButton.onClick.AddListener(() =>
+        public TextMeshProUGUI offsetText;
+        // Start is called before the first frame update
+        private void Start()
         {
-            GlobalData.Instance.offset -= .005f;
-            offsetText.text = $"{GlobalData.Instance.offset * 1000:F0}";
-        });
+            thisButton.onClick.AddListener(() =>
+            {
+                GlobalData.Instance.offset -= .005f;
+                offsetText.text = $"{GlobalData.Instance.offset * 1000:F0}";
+            });
+        }
     }
 }

@@ -1,13 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class SelectChapter_Settings : Public_Button
+using Scenes.DontDestoryOnLoad;
+using Scenes.Loading;
+using Scenes.PublicScripts;
+namespace Scenes.SelectChapter
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SelectChapterSettings : PublicButton
     {
-        GlobalData.Instance.WhereToEnterSettings = "SelectChapter";
-        thisButton.onClick.AddListener(() => Loading_Controller.Instance.SetLoadSceneByName("Settings").StartLoad());
+        // Start is called before the first frame update
+        private void Start()
+        {
+            GlobalData.Instance.whereToEnterSettings = "SelectChapter";
+            thisButton.onClick.AddListener(() => LoadingController.Instance.SetLoadSceneByName("Settings").StartLoad());
+        }
     }
 }

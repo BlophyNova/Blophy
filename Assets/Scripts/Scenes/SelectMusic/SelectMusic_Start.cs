@@ -1,14 +1,12 @@
-using Blophy.Chart;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-public class SelectMusic_Start : Public_Button
+using Scenes.Loading;
+using Scenes.PublicScripts;
+namespace Scenes.SelectMusic
 {
-    private void Start()
+    public class SelectMusicStart : PublicButton
     {
-        thisButton.onClick.AddListener(() => Loading_Controller.Instance.SetLoadSceneByName("Gameplay").StartLoad());
+        private void Start()
+        {
+            thisButton.onClick.AddListener(() => LoadingController.Instance.SetLoadSceneByName("Gameplay").StartLoad());
+        }
     }
 }

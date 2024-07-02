@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
+using Beebyte.Obfuscator;
 using UnityEditor;
-
-namespace Beebyte.Obfuscator
+using UnityEngine;
+namespace Editor.Beebyte.Obfuscator
 {
 	public class OptionsManager
 	{
@@ -20,7 +20,7 @@ namespace Beebyte.Obfuscator
 
 			if (o != null)
 			{
-                Obfuscator.FixHexBug(o);
+                global::Beebyte.Obfuscator.Obfuscator.FixHexBug(o);
 				return o;
 			}
 			
@@ -36,7 +36,7 @@ namespace Beebyte.Obfuscator
 			Options o = LoadAsset(OptionsAssetName);
 			if (o == null) return null;
 			
-			Obfuscator.FixHexBug(o);
+			global::Beebyte.Obfuscator.Obfuscator.FixHexBug(o);
 			return o;
 		}
 

@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class End_Next : Public_Button
+using Scenes.Loading;
+using Scenes.PublicScripts;
+namespace Scenes.End
 {
-    private void Start()
+    public class EndNext : PublicButton
     {
-        thisButton.onClick.AddListener(() => Loading_Controller.Instance.SetLoadSceneByName("SelectMusic").StartLoad());
+        private void Start()
+        {
+            thisButton.onClick.AddListener(() => LoadingController.Instance.SetLoadSceneByName("SelectMusic").StartLoad());
+        }
     }
 }

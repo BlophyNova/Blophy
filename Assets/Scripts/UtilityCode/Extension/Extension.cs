@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
-
-namespace Blophy.Extension
+namespace UtilityCode.Extension
 {
     public static class AnimationCurveExtension
     {

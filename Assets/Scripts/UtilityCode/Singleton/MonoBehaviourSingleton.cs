@@ -1,21 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public abstract class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviour
+namespace UtilityCode.Singleton
 {
-    public static T Instance { get; private set; }
-
-    private void Awake()
+    public abstract class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
-        if (Instance == null)
-        {
-            Instance = GetComponent<T>();
-        }
-        else Destroy(this);
-        OnAwake();
-    }
+        public static T Instance { get; private set; }
 
-    protected virtual void OnAwake() { }
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = GetComponent<T>();
+            }
+            else Destroy(this);
+            OnAwake();
+        }
+
+        protected virtual void OnAwake() { }
+    }
 }

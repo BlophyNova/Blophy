@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class HitSoundController : MonoBehaviour
+namespace Controller
 {
-    public AudioSource hitSound;
-    public HitSoundController SetClip(AudioClip audioClip)
+    public class HitSoundController : MonoBehaviour
     {
-        hitSound.clip = audioClip;
-        return this;
-    }
-    public HitSoundController Play()
-    {
-        hitSound.Play();
-        return this;
+        public AudioSource hitSound;
+        public HitSoundController SetClip(AudioClip audioClip)
+        {
+            hitSound.clip = audioClip;
+            return this;
+        }
+        public HitSoundController Play()
+        {
+            hitSound.Play();
+            return this;
+        }
     }
 }

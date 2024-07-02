@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class Gameplay_Back : Public_Button
+using Scenes.Loading;
+using Scenes.PublicScripts;
+namespace Scenes.Gameplay
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GameplayBack : PublicButton
     {
-        thisButton.onClick.AddListener(() => Loading_Controller.Instance.SetLoadSceneByName("SelectMusic").StartLoad());
+        // Start is called before the first frame update
+        private void Start()
+        {
+            thisButton.onClick.AddListener(() => LoadingController.Instance.SetLoadSceneByName("SelectMusic").StartLoad());
+        }
     }
 }

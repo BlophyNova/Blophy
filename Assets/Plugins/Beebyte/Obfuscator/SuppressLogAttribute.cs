@@ -1,6 +1,5 @@
 using System;
-
-namespace Beebyte.Obfuscator
+namespace Plugins.Beebyte.Obfuscator
 {
 	/**
 	 * Suppresses certain messages (usually warnings) that the Obfuscator can output.
@@ -9,7 +8,7 @@ namespace Beebyte.Obfuscator
 	public class SuppressLogAttribute : System.Attribute
 	{
 #pragma warning disable 414
-		private readonly MessageCode _messageCode;
+		private readonly MessageCode messageCode;
 #pragma warning restore 414
 
 		private SuppressLogAttribute()
@@ -18,7 +17,7 @@ namespace Beebyte.Obfuscator
 
 		public SuppressLogAttribute(MessageCode messageCode)
 		{
-			_messageCode = messageCode;
+			this.messageCode = messageCode;
 		}
 	}
 }

@@ -1,57 +1,59 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
-public class Loading_Controller : MonoBehaviourSingleton<Loading_Controller>
+using UtilityCode.Singleton;
+namespace Scenes.Loading
 {
-    public Image white;
-    public Action action;
-    public void StartLoad()
+    public class LoadingController : MonoBehaviourSingleton<LoadingController>
     {
-        StartCoroutine(Alpha0_1());
-    }
-    IEnumerator Alpha0_1()
-    {
-        white.gameObject.SetActive(true);
-        Color color = Color.white;
-        color.a = 0;
-        while (color.a < 1)
+        public Image white;
+        public Action Action;
+        public void StartLoad()
         {
-            color.a += Time.deltaTime;
-            white.color = color;
-            yield return new WaitForEndOfFrame();
+            StartCoroutine(Alpha0_1());
         }
-        action?.Invoke();
-    }
-    public void CompleteLoad()
-    {
-        StartCoroutine(Alpha1_0());
-    }
-    IEnumerator Alpha1_0()
-    {
-        Color color = Color.white;
-        while (color.a > 0)
+        private IEnumerator Alpha0_1()
         {
-            color.a -= Time.deltaTime;
-            white.color = color;
-            yield return new WaitForEndOfFrame();
-        }
-        white.gameObject.SetActive(false);
-    }
-    public Loading_Controller SetLoadSceneByName(string targetSceneName)
-    {
-        action = () =>
-        {
-            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()).completed += (AsyncOperation a) => 
-            SceneManager.LoadSceneAsync(targetSceneName, LoadSceneMode.Additive).completed += (AsyncOperation a) =>
+            white.gameObject.SetActive(true);
+            Color color = Color.white;
+            color.a = 0;
+            while (color.a < 1)
             {
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(targetSceneName));
-                CompleteLoad();
+                color.a += Time.deltaTime;
+                white.color = color;
+                yield return new WaitForEndOfFrame();
+            }
+            Action?.Invoke();
+        }
+        public void CompleteLoad()
+        {
+            StartCoroutine(Alpha1_0());
+        }
+        private IEnumerator Alpha1_0()
+        {
+            Color color = Color.white;
+            while (color.a > 0)
+            {
+                color.a -= Time.deltaTime;
+                white.color = color;
+                yield return new WaitForEndOfFrame();
+            }
+            white.gameObject.SetActive(false);
+        }
+        public LoadingController SetLoadSceneByName(string targetSceneName)
+        {
+            Action = () =>
+            {
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()).completed += (AsyncOperation a) => 
+                    SceneManager.LoadSceneAsync(targetSceneName, LoadSceneMode.Additive).completed += (AsyncOperation a) =>
+                    {
+                        SceneManager.SetActiveScene(SceneManager.GetSceneByName(targetSceneName));
+                        CompleteLoad();
+                    };
             };
-        };
-        return this;
+            return this;
+        }
     }
 }

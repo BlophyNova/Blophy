@@ -1,4 +1,4 @@
-namespace Beebyte.Obfuscator
+namespace Editor.Beebyte.Obfuscator
 {
 	/**
 	 * Empty class to ensure old versions of this class are wiped out on upgrades.

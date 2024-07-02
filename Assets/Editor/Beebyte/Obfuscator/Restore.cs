@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Beebyte.Obfuscator.Assembly;
+using Beebyte.Obfuscator;
+using Editor.Beebyte.Obfuscator.Assembly;
 using UnityEditor;
-
-namespace Beebyte.Obfuscator
+namespace Editor.Beebyte.Obfuscator
 {
 	public class RestoreUtils
 	{
@@ -44,7 +44,7 @@ namespace Beebyte.Obfuscator
 				try
 				{
 					EditorApplication.LockReloadAssemblies();
-					Obfuscator.RevertAssetObfuscation();
+					global::Beebyte.Obfuscator.Obfuscator.RevertAssetObfuscation();
 				}
 				finally
 				{

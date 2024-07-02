@@ -6,43 +6,43 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Beebyte.Obfuscator.Assembly;
+using Beebyte.Obfuscator;
+using Editor.Beebyte.Obfuscator.Assembly;
 using UnityEditor;
 using UnityEngine;
-
-namespace Beebyte.Obfuscator
+namespace Editor.Beebyte.Obfuscator
 {
 	/**
 	 * Handles obfuscation calls for a Unity project and controls restoration of backed up files.
 	 */
 	public class Project
 	{
-		private Options _options;
+		private Options options;
 
-		private bool _monoBehaviourAssetsNeedReverting = false;
-		private bool _hasError;
-		private bool _hasObfuscated;
-		private bool _noCSharpScripts;
+		private bool monoBehaviourAssetsNeedReverting = false;
+		private bool hasError;
+		private bool hasObfuscated;
+		private bool noCSharpScripts;
 		
 		public bool ShouldObfuscate()
 		{
-			if (_options == null) _options = OptionsManager.LoadOptions();
-			return _options.enabled && (_options.obfuscateReleaseOnly == false || Debug.isDebugBuild == false);
+			if (options == null) options = OptionsManager.LoadOptions();
+			return options.enabled && (options.obfuscateReleaseOnly == false || Debug.isDebugBuild == false);
 		}
 
 		public bool IsSuccess()
 		{
-			return _hasObfuscated || !ShouldObfuscate();
+			return hasObfuscated || !ShouldObfuscate();
 		}
 
 		public bool HasCSharpScripts()
 		{
-			return !_noCSharpScripts;
+			return !noCSharpScripts;
 		}
 
 		public bool HasMonoBehaviourAssetsThatNeedReverting()
 		{
-			return _monoBehaviourAssetsNeedReverting;
+			return monoBehaviourAssetsNeedReverting;
 		}
 
 		public void ObfuscateIfNeeded()
@@ -50,7 +50,7 @@ namespace Beebyte.Obfuscator
 #if UNITY_3_1 || UNITY_3_2 || UNITY_3_3 || UNITY_3_4 || UNITY_3_5 || UNITY_4_0 || UNITY_4_1 || UNITY_4_2
 			if (!EditorApplication.isPlayingOrWillChangePlaymode && !_hasObfuscated && _hasError == false)
 #else
-			if (!EditorApplication.isPlayingOrWillChangePlaymode && !_hasObfuscated && _hasError == false && BuildPipeline.isBuildingPlayer)
+			if (!EditorApplication.isPlayingOrWillChangePlaymode && !hasObfuscated && hasError == false && BuildPipeline.isBuildingPlayer)
 #endif
 			{
 #if !UNITY_5_6_OR_NEWER
@@ -64,7 +64,7 @@ namespace Beebyte.Obfuscator
 				catch (Exception e)
 				{
 					Debug.LogError("Obfuscation Failed: " + e);
-					_hasError = true;
+					hasError = true;
 					throw new OperationCanceledException("Obfuscation failed", e);
 				}
 				finally
@@ -76,11 +76,11 @@ namespace Beebyte.Obfuscator
 
 		private void ObfuscateWhileLocked()
 		{
-			if (_options == null) _options = OptionsManager.LoadOptions();
+			if (options == null) options = OptionsManager.LoadOptions();
 
 			if (ShouldObfuscate() == false) return;
 
-			AssemblySelector selector = new AssemblySelector(_options);
+			AssemblySelector selector = new AssemblySelector(options);
 
 			ICollection<string> compiledDlls = selector.GetCompiledAssemblyPaths();
 
@@ -96,27 +96,27 @@ namespace Beebyte.Obfuscator
 
 			if (dlls.Count == 0 && compiledDlls.Count == 0)
 			{
-				_noCSharpScripts = true;
+				noCSharpScripts = true;
 				return;
 			}
 
 #if UNITY_2017_3_OR_NEWER
-			Obfuscator.AppendReferenceAssemblies(AssemblyReferenceLocator.GetAssemblyReferenceDirectories().ToArray());
+			global::Beebyte.Obfuscator.Obfuscator.AppendReferenceAssemblies(AssemblyReferenceLocator.GetAssemblyReferenceDirectories().ToArray());
 #endif
 				
 #if UNITY_2018_2_OR_NEWER
-			Obfuscator.ObfuscateMonoBehavioursByAssetDatabase(false);
-			var obfuscateMonoBehaviourNames = _options.obfuscateMonoBehaviourClassNames;
+			global::Beebyte.Obfuscator.Obfuscator.ObfuscateMonoBehavioursByAssetDatabase(false);
+			var obfuscateMonoBehaviourNames = options.obfuscateMonoBehaviourClassNames;
 			try
 			{
-				if (IsXCodeProject() && _options.obfuscateMonoBehaviourClassNames)
+				if (IsXCodeProject() && options.obfuscateMonoBehaviourClassNames)
 				{
 					Debug.LogWarning("MonoBehaviour class names will not be obfuscated when creating Xcode projects");
-					_options.obfuscateMonoBehaviourClassNames = false;
+					options.obfuscateMonoBehaviourClassNames = false;
 				}
 #endif
 
-				Obfuscator.Obfuscate(dlls, compiledDlls, _options, EditorUserBuildSettings.activeBuildTarget);
+				global::Beebyte.Obfuscator.Obfuscator.Obfuscate(dlls, compiledDlls, options, EditorUserBuildSettings.activeBuildTarget);
 
 #if !UNITY_2018_2_OR_NEWER
 			if (_options.obfuscateMonoBehaviourClassNames)
@@ -131,10 +131,10 @@ namespace Beebyte.Obfuscator
 			}
 			finally
 			{
-				_options.obfuscateMonoBehaviourClassNames = obfuscateMonoBehaviourNames;
+				options.obfuscateMonoBehaviourClassNames = obfuscateMonoBehaviourNames;
 			}
 #endif
-			_hasObfuscated = true;
+			hasObfuscated = true;
 		}
 
 #if UNITY_2018_2_OR_NEWER
@@ -149,11 +149,11 @@ namespace Beebyte.Obfuscator
 		{
 #if UNITY_2018_2_OR_NEWER
 			if (IsXCodeProject()) return;
-			if (_options == null) _options = OptionsManager.LoadOptions();
-			if (_options.obfuscateMonoBehaviourClassNames && File.Exists("_AssetTranslations"))
+			if (options == null) options = OptionsManager.LoadOptions();
+			if (options.obfuscateMonoBehaviourClassNames && File.Exists("_AssetTranslations"))
 			{
 				string pathToGlobalGameManagersAsset = GlobalGameManagersPath.GetPathToGlobalGameManagersAsset(buildTarget, pathToBuildProject);
-				Obfuscator.RenameScriptableAssets("_AssetTranslations", pathToGlobalGameManagersAsset);
+				global::Beebyte.Obfuscator.Obfuscator.RenameScriptableAssets("_AssetTranslations", pathToGlobalGameManagersAsset);
 			}
 #endif
 		}

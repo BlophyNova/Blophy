@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class SelectChapter_Return : Public_Button
+using Scenes.Loading;
+using Scenes.PublicScripts;
+namespace Scenes.SelectChapter
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SelectChapterReturn : PublicButton
     {
-        thisButton.onClick.AddListener(() => Loading_Controller.Instance.SetLoadSceneByName("Main").StartLoad());
+        // Start is called before the first frame update
+        private void Start()
+        {
+            thisButton.onClick.AddListener(() => LoadingController.Instance.SetLoadSceneByName("Main").StartLoad());
+        }
     }
 }

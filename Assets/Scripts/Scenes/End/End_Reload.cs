@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class End_Reload : Public_Button
+using Scenes.Loading;
+using Scenes.PublicScripts;
+namespace Scenes.End
 {
-    private void Start()
+    public class EndReload : PublicButton
     {
-        thisButton.onClick.AddListener(() => Loading_Controller.Instance.SetLoadSceneByName("Gameplay").StartLoad());
+        private void Start()
+        {
+            thisButton.onClick.AddListener(() => LoadingController.Instance.SetLoadSceneByName("Gameplay").StartLoad());
+        }
     }
 }

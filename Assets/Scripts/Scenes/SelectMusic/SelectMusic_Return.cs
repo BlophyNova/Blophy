@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class SelectMusic_Return : Public_Button
+using Scenes.Loading;
+using Scenes.PublicScripts;
+namespace Scenes.SelectMusic
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SelectMusicReturn : PublicButton
     {
-        thisButton.onClick.AddListener(() => Loading_Controller.Instance.SetLoadSceneByName("SelectChapter").StartLoad());
+        // Start is called before the first frame update
+        private void Start()
+        {
+            thisButton.onClick.AddListener(() => LoadingController.Instance.SetLoadSceneByName("SelectChapter").StartLoad());
+        }
     }
 }

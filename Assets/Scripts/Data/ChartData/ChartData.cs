@@ -1,8 +1,9 @@
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
+using Manager;
+using Newtonsoft.Json;
 using UnityEngine;
-namespace Blophy.Chart
+using UnityEngine.Serialization;
+namespace Data.ChartData
 {
 
     [Serializable]
@@ -19,7 +20,8 @@ namespace Blophy.Chart
     {
         public string musicName = "";
         public string musicWriter = "";
-        public string musicBPMText = "";
+        [FormerlySerializedAs("musicBPMText")]
+        public string musicBpmText = "";
         public string artWriter = "";
         public string chartWriter = "";
         public string chartLevel = "";
@@ -135,93 +137,93 @@ namespace Blophy.Chart
     public class BoxEvents
     {
         public Event[] moveX;
-        int length_moveX = -1;
-        public int Length_moveX
+        private int lengthMoveX = -1;
+        public int LengthMoveX
         {
             get
             {
-                if (length_moveX < 0) length_moveX = moveX.Length;
-                return length_moveX;
+                if (lengthMoveX < 0) lengthMoveX = moveX.Length;
+                return lengthMoveX;
             }
         }
         public Event[] moveY;
-        int length_moveY = -1;
-        public int Length_moveY
+        private int lengthMoveY = -1;
+        public int LengthMoveY
         {
             get
             {
-                if (length_moveY < 0) length_moveY = moveY.Length;
-                return length_moveY;
+                if (lengthMoveY < 0) lengthMoveY = moveY.Length;
+                return lengthMoveY;
             }
         }
         public Event[] rotate;
-        int length_rotate = -1;
-        public int Length_rotate
+        private int lengthRotate = -1;
+        public int LengthRotate
         {
             get
             {
-                if (length_rotate < 0) length_rotate = rotate.Length;
-                return length_rotate;
+                if (lengthRotate < 0) lengthRotate = rotate.Length;
+                return lengthRotate;
             }
         }
         public Event[] alpha;
-        int length_alpha = -1;
-        public int Length_alpha
+        private int lengthAlpha = -1;
+        public int LengthAlpha
         {
             get
             {
-                if (length_alpha < 0) length_alpha = alpha.Length;
-                return length_alpha;
+                if (lengthAlpha < 0) lengthAlpha = alpha.Length;
+                return lengthAlpha;
             }
         }
         public Event[] scaleX;
-        int length_scaleX = -1;
-        public int Length_scaleX
+        private int lengthScaleX = -1;
+        public int LengthScaleX
         {
             get
             {
-                if (length_scaleX < 0) length_scaleX = scaleX.Length;
-                return length_scaleX;
+                if (lengthScaleX < 0) lengthScaleX = scaleX.Length;
+                return lengthScaleX;
             }
         }
         public Event[] scaleY;
-        int length_scaleY = -1;
-        public int Length_scaleY
+        private int lengthScaleY = -1;
+        public int LengthScaleY
         {
             get
             {
-                if (length_scaleY < 0) length_scaleY = scaleY.Length;
-                return length_scaleY;
+                if (lengthScaleY < 0) lengthScaleY = scaleY.Length;
+                return lengthScaleY;
             }
         }
         public Event[] centerX;
-        int length_centerX = -1;
-        public int Length_centerX
+        private int lengthCenterX = -1;
+        public int LengthCenterX
         {
             get
             {
-                if (length_centerX < 0) length_centerX = centerX.Length;
-                return length_centerX;
+                if (lengthCenterX < 0) lengthCenterX = centerX.Length;
+                return lengthCenterX;
             }
         }
         public Event[] centerY;
-        int length_centerY = -1;
-        public int Length_centerY
+        private int lengthCenterY = -1;
+        public int LengthCenterY
         {
             get
             {
-                if (length_centerY < 0) length_centerY = centerY.Length;
-                return length_centerY;
+                if (lengthCenterY < 0) lengthCenterY = centerY.Length;
+                return lengthCenterY;
             }
         }
         public Event[] lineAlpha;
-        int length_lineAlpha = -1;
-        public int Length_lineAlpha
+        private int lengthLineAlpha = -1;
+        public int LengthLineAlpha
         {
             get
             {
-                if (length_lineAlpha < 0) length_lineAlpha = lineAlpha.Length;
-                return length_lineAlpha;
+                if (lengthLineAlpha < 0) lengthLineAlpha = lineAlpha.Length;
+                return lengthLineAlpha;
             }
         }
     }

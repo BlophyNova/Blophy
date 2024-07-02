@@ -1,14 +1,13 @@
 
-public class EmptySingleton<T> where T : class, new()
+namespace UtilityCode.Singleton
 {
-    private static readonly T instance = null;
-    static EmptySingleton()    //构造函数
+    public class EmptySingleton<T> where T : class, new()
     {
-        instance = new T();
-    }
+        static EmptySingleton()    //构造函数
+        {
+            Instance = new T();
+        }
 
-    public static T Instance
-    {
-        get => instance;
+        public static T Instance { get; } = null;
     }
 }

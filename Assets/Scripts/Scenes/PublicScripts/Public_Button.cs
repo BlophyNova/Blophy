@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class Public_Button : MonoBehaviour
+namespace Scenes.PublicScripts
 {
-    public Button thisButton;
+    public class PublicButton : MonoBehaviour
+    {
+        public Button thisButton;
+    }
 }
