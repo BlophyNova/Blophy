@@ -603,7 +603,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 259916920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc717622413e9574b8dc3dc735410395, type: 3}
+  m_Script: {fileID: 11500000, guid: 96c92a10e9508e8459e9b5f4712ab9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisButton: {fileID: 259916922}
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 692377007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eec8f4297c11d64788cbdca27a883ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b776391ca4dea041972a63f520ac41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisButton: {fileID: 692377009}
@@ -1671,6 +1671,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -2782,12 +2783,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1790232170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9123fdd2b4e8ee54480cda4540196ebf, type: 3}
+  m_Script: {fileID: 11500000, guid: 70acf05961298634781230a1cb1a369a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 1077609534}
   art: {fileID: 1276026854}
-  APFC: {fileID: 1688274952}
+  apfc: {fileID: 1688274952}
   score: {fileID: 963029988}
   perfect: {fileID: 794731271}
   good: {fileID: 2039916428}

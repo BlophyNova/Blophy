@@ -828,7 +828,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 233577283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc5e83e071a8b3841a0c99d642165d31, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c0a3a240bf17d845a6fe19113b23333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisButton: {fileID: 233577285}
@@ -995,7 +995,7 @@ GameObject:
   - component: {fileID: 254855125}
   - component: {fileID: 254855128}
   - component: {fileID: 254855127}
-  - component: {fileID: 254855129}
+  - component: {fileID: 254855130}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &254855129
+--- !u!114 &254855130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 254855124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4431508cb26655478a8d960b3ed8bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ed27dffbfcb7464695f1f35ab2a3b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   verticalBar: {fileID: 1680561920}
@@ -2304,7 +2304,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1017402407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c16e5b9e9926cd4b8e7ecc120934118, type: 3}
+  m_Script: {fileID: 11500000, guid: 761f05f875a2e75459da670e4d3da151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisButton: {fileID: 611081688}
@@ -3796,6 +3796,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: -1
@@ -4036,6 +4037,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0

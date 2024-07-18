@@ -251,14 +251,14 @@ MonoBehaviour:
   fingerSavePosition: 0.2
   noteRendererOrder: 4
   editorTargetFPS: 165
-  FPS: 9999
+  fps: 9999
   goodJudgePercent: 0.65
   onlineJudgeRange: 0.5
   offlineJudgeRange: -0.5
   noteRightJudgeRange: 0.5
   noteLeftJudgeRange: -0.5
-  fullFlick_noteRightJudgeRange: 1.3
-  fullFlick_noteLeftJudgeRange: -1.3
+  fullFlickNoteRightJudgeRange: 1.3
+  fullFlickNoteLeftJudgeRange: -1.3
   currentTargetFPS: 0
   perfectJudge: {r: 1, g: 0.7023622, b: 0.39999998, a: 1}
   goodJudge: {r: 0.39999998, g: 1, b: 1, a: 1}
@@ -266,7 +266,7 @@ MonoBehaviour:
   otherJudge: {r: 1, g: 1, b: 1, a: 1}
   hitEffectScale: 0.3
   holdLeaveScreenTime: 0.5
-  holdHitEffectCDTime: 0.5
+  holdHitEffectCdTime: 0.5
   tapWeight: 10
   holdWeight: 23
   dragWeight: 5
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 171932793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a7b96dc01d36ae448f7164f86a300af, type: 3}
+  m_Script: {fileID: 11500000, guid: b8a87e5d0ed686f4f9490b6717be140b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisButton: {fileID: 171932795}
@@ -1107,6 +1107,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -2346,6 +2347,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: -1
@@ -2481,7 +2483,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1047465067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1f1fa0f0e130f84a9b0b915424833c5, type: 3}
+  m_Script: {fileID: 11500000, guid: a355fcd9626dbd44f9fc837538cd5721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisButton: {fileID: 1047465069}
@@ -2610,7 +2612,7 @@ MonoBehaviour:
     metaData:
       musicName: 
       musicWriter: 
-      musicBPMText: 
+      musicBpmText: 
       artWriter: 
       chartWriter: 
       chartLevel: 
@@ -3232,6 +3234,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 32767
@@ -3573,7 +3576,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1866652418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346380dee84867845a52ea0397dec2c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b12e8d3834574c428cd27a1253873b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisButton: {fileID: 1866652420}
@@ -4037,7 +4040,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2033463650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d3dc4c7d6753a64590abe76a0734313, type: 3}
+  m_Script: {fileID: 11500000, guid: adc615f7ac34224489c17ca102b4bfa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisButton: {fileID: 2033463652}

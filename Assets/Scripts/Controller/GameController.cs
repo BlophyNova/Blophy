@@ -27,7 +27,7 @@ namespace Controller
             if( !(GlobalData.Instance.chartData.globalData.musicLength - ProgressManager.Instance.CurrentTime <= .1f) || isLoading )
                 return;
             isLoading = true;
-            LoadingController.Instance.SetLoadSceneByName("End").StartLoad();
+            Scenes.Loading.Controller.Instance.SetLoadSceneByName("End").StartLoad();
 
         }
     }
