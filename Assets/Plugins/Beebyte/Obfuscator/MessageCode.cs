@@ -1,4 +1,4 @@
-namespace Beebyte.Obfuscator
+namespace Plugins.Beebyte.Obfuscator
 {
 	public enum MessageCode
 	{

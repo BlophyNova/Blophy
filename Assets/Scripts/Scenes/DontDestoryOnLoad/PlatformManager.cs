@@ -1,26 +1,29 @@
-using Beebyte.Obfuscator;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-public class PlatformManager : MonoBehaviourSingleton<PlatformManager>
+using UtilityCode.Singleton;
+namespace Scenes.DontDestoryOnLoad
 {
-    public string currentPlatformArchiveDataPath;
-    public string editorArchiveDataPath;
-    public string androidArchiveDataPath;
-    public string iPhoneArchiveDataPath;
-    private void Start()
+    public class PlatformManager : MonoBehaviourSingleton<PlatformManager>
     {
-        if (Application.isEditor)
+        public string currentPlatformArchiveDataPath;
+        public string editorArchiveDataPath;
+        public string androidArchiveDataPath;
+        public string iPhoneArchiveDataPath;
+        private void Start()
         {
-            currentPlatformArchiveDataPath = editorArchiveDataPath;
-        }
-        else if (Application.platform == RuntimePlatform.Android)
-        {
-            currentPlatformArchiveDataPath = androidArchiveDataPath;
-        }
-        else if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            currentPlatformArchiveDataPath = iPhoneArchiveDataPath;
+            switch (Application.platform)
+            {
+                case RuntimePlatform.Android:
+                    currentPlatformArchiveDataPath = androidArchiveDataPath;
+                    break;
+                case RuntimePlatform.IPhonePlayer:
+                    currentPlatformArchiveDataPath = iPhoneArchiveDataPath;
+                    break;
+                default:
+                    if( !Application.isEditor )
+                        return;
+                    currentPlatformArchiveDataPath = editorArchiveDataPath;
+                    break;
+            }
         }
     }
 }

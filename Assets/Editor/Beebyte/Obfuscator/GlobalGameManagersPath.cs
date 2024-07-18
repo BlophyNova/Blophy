@@ -3,8 +3,7 @@
  */
 using System.IO;
 using UnityEditor;
-
-namespace Beebyte.Obfuscator
+namespace Editor.Beebyte.Obfuscator
 {
     public class GlobalGameManagersPath
     {

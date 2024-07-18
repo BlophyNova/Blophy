@@ -3,13 +3,13 @@
 
 using System;
 using System.Reflection;
-using UnityEngine;
+using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Core.PathCore;
 using DG.Tweening.Plugins.Options;
-
+using UnityEngine;
 #pragma warning disable 1591
-namespace DG.Tweening
+namespace Plugins.Demigiant.DOTween.Modules
 {
     /// <summary>
     /// Utility functions that deal with available Modules.
@@ -23,9 +23,9 @@ namespace DG.Tweening
     /// - DOTWEEN_TMP ► TextMesh Pro
     /// - DOTWEEN_TK2D ► 2D Toolkit
     /// </summary>
-	public static class DOTweenModuleUtils
+	public static class DoTweenModuleUtils
     {
-        static bool _initialized;
+        private static bool _initialized;
 
         #region Reflection
 
@@ -55,7 +55,7 @@ namespace DG.Tweening
 #pragma warning disable
         [UnityEngine.Scripting.Preserve]
         // Just used to preserve methods when building, never called
-        static void Preserver()
+        private static void Preserver()
         {
             Assembly[] loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
             MethodInfo mi = typeof(MonoBehaviour).GetMethod("Stub");
@@ -70,11 +70,11 @@ namespace DG.Tweening
 #if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_5 || UNITY_2017_1
         static void PlaymodeStateChanged()
         #else
-        static void PlaymodeStateChanged(UnityEditor.PlayModeStateChange state)
+        private static void PlaymodeStateChanged(UnityEditor.PlayModeStateChange state)
 #endif
         {
-            if (DOTween.instance == null) return;
-            DOTween.instance.OnApplicationPause(UnityEditor.EditorApplication.isPaused);
+            if (DG.Tweening.DOTween.instance == null) return;
+            DG.Tweening.DOTween.instance.OnApplicationPause(UnityEditor.EditorApplication.isPaused);
         }
 #endif
 
@@ -126,7 +126,7 @@ namespace DG.Tweening
 #if UNITY_2018_1_OR_NEWER
             [UnityEngine.Scripting.Preserve]
 #endif
-            public static TweenerCore<Vector3, Path, PathOptions> CreateDOTweenPathTween(
+            public static TweenerCore<Vector3, Path, PathOptions> CreateDoTweenPathTween(
                 MonoBehaviour target, bool tweenRigidbody, bool isLocal, Path path, float duration, PathMode pathMode
             ){
                 TweenerCore<Vector3, Path, PathOptions> t = null;
@@ -137,8 +137,8 @@ namespace DG.Tweening
                     if (rBody != null) {
                         rBodyFoundAndTweened = true;
                         t = isLocal
-                            ? rBody.DOLocalPath(path, duration, pathMode)
-                            : rBody.DOPath(path, duration, pathMode);
+                            ? rBody.DoLocalPath(path, duration, pathMode)
+                            : rBody.DoPath(path, duration, pathMode);
                     }
                 }
 #endif
@@ -148,8 +148,8 @@ namespace DG.Tweening
                     if (rBody2D != null) {
                         rBodyFoundAndTweened = true;
                         t = isLocal
-                            ? rBody2D.DOLocalPath(path, duration, pathMode)
-                            : rBody2D.DOPath(path, duration, pathMode);
+                            ? rBody2D.DoLocalPath(path, duration, pathMode)
+                            : rBody2D.DoPath(path, duration, pathMode);
                     }
                 }
 #endif

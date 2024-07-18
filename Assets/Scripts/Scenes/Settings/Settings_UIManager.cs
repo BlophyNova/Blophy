@@ -1,19 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using Scenes.DontDestoryOnLoad;
 using TMPro;
 using UnityEngine;
-
-public class Settings_UIManager : MonoBehaviour
+namespace Scenes.Settings
 {
-    public TextMeshProUGUI isAutoplayText;
-    public TextMeshProUGUI offsetText;
-    private void Start()
+    public class SettingsUIManager : MonoBehaviour
     {
-        isAutoplayText.text = GlobalData.Instance.isAutoplay switch
+        public TextMeshProUGUI isAutoplayText;
+        public TextMeshProUGUI offsetText;
+        private void Start()
         {
-            true => "自动播放: 开",
-            false => "自动播放: 关"
-        };
-        offsetText.text = $"{GlobalData.Instance.offset * 1000:F0}";
+            isAutoplayText.text = GlobalData.Instance.isAutoplay switch
+            {
+                true => "自动播放: 开",
+                false => "自动播放: 关"
+            };
+            offsetText.text = $"{GlobalData.Instance.offset * 1000:F0}";
+        }
     }
 }

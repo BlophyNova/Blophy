@@ -6,8 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.Compilation;
-
-namespace Beebyte.Obfuscator.Assembly
+namespace Editor.Beebyte.Obfuscator.Assembly
 {
 	public class AssemblyReferenceLocator
 	{

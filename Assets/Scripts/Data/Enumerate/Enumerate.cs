@@ -1,13 +1,19 @@
-public enum NoteJudge
+namespace Data.Enumerate
 {
-    Perfect,
-    Good,
-    Bad,
-    Miss
-}
-public enum Hard
-{
-    Green,
-    Yellow,
-    Red
+    public enum NoteJudge
+    {
+        Perfect,
+        Early,
+        Late,
+        Bad,
+        Miss
+    }
+    public enum Hard
+    {
+        Easy,
+        Normal,
+        Hard,
+        Ultra,
+        Special
+    }
 }

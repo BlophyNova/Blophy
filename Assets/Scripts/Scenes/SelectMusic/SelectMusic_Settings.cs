@@ -1,15 +1,14 @@
-using Blophy.Chart;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-public class SelectMusic_Settings : Public_Button
+using Scenes.DontDestoryOnLoad;
+using Scenes.Loading;
+using Scenes.PublicScripts;
+namespace Scenes.SelectMusic
 {
-    private void Start()
+    public class SelectMusicSettings : PublicButton
     {
-        GlobalData.Instance.WhereToEnterSettings = "SelectMusic";
-        thisButton.onClick.AddListener(() => Loading_Controller.Instance.SetLoadSceneByName("Settings").StartLoad());
+        private void Start()
+        {
+            GlobalData.Instance.whereToEnterSettings = "SelectMusic";
+            thisButton.onClick.AddListener(() => LoadingController.Instance.SetLoadSceneByName("Settings").StartLoad());
+        }
     }
 }

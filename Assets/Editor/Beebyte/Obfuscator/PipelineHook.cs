@@ -3,20 +3,15 @@
  */
 #if !BEEBYTE_OBFUSCATOR_DISABLE
 
-using System;
-using System.IO;
-using System.Net;
-using UnityEditor;
-using UnityEngine;
-using UnityEditor.Callbacks;
 #if UNITY_5_6_OR_NEWER
+#endif
+using UnityEditor;
 using UnityEditor.Build;
-#endif
-#if UNITY_2018_1_OR_NEWER
 using UnityEditor.Build.Reporting;
-#endif
+using UnityEditor.Callbacks;
+using UnityEngine;
 
-namespace Beebyte.Obfuscator
+namespace Editor.Beebyte.Obfuscator
 {
 	/**
 	 * Hooks into the Unity build pipeline and delegates to perform obfuscation / restoration if requested.

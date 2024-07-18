@@ -1,26 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using Scenes.DontDestoryOnLoad;
+using Scenes.PublicScripts;
 using TMPro;
-using UnityEngine;
-
-public class Settings_IsAutoplay : Public_Button
+namespace Scenes.Settings
 {
-    public TextMeshProUGUI thisText;
-    // Start is called before the first frame update
-    void Start()
+    public class SettingsIsAutoplay : PublicButton
     {
-        thisButton.onClick.AddListener(() =>
+        public TextMeshProUGUI thisText;
+        // Start is called before the first frame update
+        private void Start()
         {
-            if (GlobalData.Instance.isAutoplay)
+            thisButton.onClick.AddListener(() =>
             {
-                GlobalData.Instance.isAutoplay = false;
-                thisText.text = "自动播放: 关";
-            }
-            else
-            {
-                GlobalData.Instance.isAutoplay = true;
-                thisText.text = "自动播放: 开";
-            }
-        });
+                if (GlobalData.Instance.isAutoplay)
+                {
+                    GlobalData.Instance.isAutoplay = false;
+                    thisText.text = "自动播放: 关";
+                }
+                else
+                {
+                    GlobalData.Instance.isAutoplay = true;
+                    thisText.text = "自动播放: 开";
+                }
+            });
+        }
     }
 }

@@ -5,10 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
-using UnityEditor;
 using UnityEngine;
-
-namespace Beebyte.Obfuscator
+namespace Editor.Beebyte.Obfuscator
 {
 	public class FileBackup
 	{

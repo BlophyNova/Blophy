@@ -1,54 +1,56 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Controller;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-[Serializable]
-public abstract class ObjectPoolBase<T> where T : MonoBehaviour
+namespace UtilityCode.ObjectPool
 {
-    protected T PoolObject;
-    protected Transform parent;
-    protected int sortSeed;
-    protected ObjectPoolBase(T @object, int poolLength, int sortSeed, Transform parent = null)
+    [Serializable]
+    public abstract class ObjectPoolBase<T> where T : MonoBehaviour
     {
-        this.parent = parent;
-        this.sortSeed = sortSeed;
-        PoolObject = @object;
-    }
-    protected ObjectPoolBase(T @object, int poolLength, Transform parent = null)
-    {
-        this.parent = parent;
-        PoolObject = @object;
-    }
-    protected T CreateNote()
-    {
-        T obj = Object.Instantiate(PoolObject, Vector3.zero, Quaternion.identity, parent == null ? PoolObject.transform : parent);
-        NoteController note = obj.GetComponent<NoteController>();
-        for (int i = 0; i < note.renderOrder.Count; i++)
+        protected T PoolObject;
+        protected Transform Parent;
+        protected int SortSeed;
+        protected ObjectPoolBase(T @object, int poolLength, int sortSeed, Transform parent = null)
         {
-            foreach (var item in note.renderOrder[i].tierCount)
-            {
-                item.sortingOrder = sortSeed + 1 + i;
-            }
+            Parent = parent;
+            SortSeed = sortSeed;
+            PoolObject = @object;
         }
-        obj.gameObject.SetActive(false);
-        return obj;
-    }
-    protected virtual T GetNote() => null;
+        protected ObjectPoolBase(T @object, int poolLength, Transform parent = null)
+        {
+            Parent = parent;
+            PoolObject = @object;
+        }
+        protected T CreateNote()
+        {
+            T obj = Object.Instantiate(PoolObject, Vector3.zero, Quaternion.identity, Parent == null ? PoolObject.transform : Parent);
+            NoteController note = obj.GetComponent<NoteController>();
+            for (int i = 0; i < note.renderOrder.Count; i++)
+            {
+                foreach (SpriteRenderer item in note.renderOrder[i].tierCount)
+                {
+                    item.sortingOrder = SortSeed + 1 + i;
+                }
+            }
+            obj.gameObject.SetActive(false);
+            return obj;
+        }
+        protected virtual T GetNote() => null;
 
-    public virtual void ReturnNote(T obj)
-    {
-    }
-    protected virtual T GetObject() => null;
+        public virtual void ReturnNote(T obj)
+        {
+        }
+        protected virtual T GetObject() => null;
 
-    public virtual void ReturnObject(T obj)
-    {
-    }
-    protected T CreateObject()
-    {
-        T obj = Object.Instantiate(PoolObject, Vector3.zero, Quaternion.identity, parent == null ? PoolObject.transform : parent);
-        obj.gameObject.SetActive(false);
-        return obj;
+        public virtual void ReturnObject(T obj)
+        {
+        }
+        protected T CreateObject()
+        {
+            T obj = Object.Instantiate(PoolObject, Vector3.zero, Quaternion.identity, !Parent ? PoolObject.transform : Parent);
+            obj.gameObject.SetActive(false);
+            return obj;
+        }
     }
 }

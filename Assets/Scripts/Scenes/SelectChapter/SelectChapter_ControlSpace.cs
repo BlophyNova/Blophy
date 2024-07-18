@@ -1,39 +1,40 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Scenes.DontDestoryOnLoad;
+using Scenes.PublicScripts;
 using UnityEngine;
-
-public class SelectChapter_ControlSpace : Public_ControlSpace
+namespace Scenes.SelectChapter
 {
+    public class SelectChapterControlSpace : PublicControlSpace
+    {
 
-    public override void Send()
-    {
-        GlobalData.Instance.currentChapterIndex = currentElementIndex;
-        GlobalData.Instance.currentChapter = GlobalData.Instance.chapters[currentElementIndex].chapterName;
-    }
-    protected override void ListUpdate()
-    {
-        if (Input.touchCount > 0 &&
-                    Input.GetTouch(0).phase == TouchPhase.Ended)
+        protected override void Send()
         {
-            float[] allElementDistanceWithFinger = new float[elementCount];//手指抬手的时候，所有元素距离当前值的距离（取绝对值）
-            for (int i = 0; i < elementCount; i++)
-            {
-                allElementDistanceWithFinger[i] =
-                Mathf.Abs(verticalBar.value - single * i);
-            }
-
-            int minValue = 0;
-            for (int i = 1; i < allElementDistanceWithFinger.Length; i++)
-            {
-                minValue = allElementDistanceWithFinger[i] < allElementDistanceWithFinger[i - 1] ? i : minValue;//判断哪个元素距离当前值最小
-            }
-            currentElement = allElementDistance[minValue];//复制索引值
-                                                          //GlobalData.Instance.SelectChapter_CurrentChapter = minValue;
-            currentElementIndex = elementCount - 1 - minValue;
-            Send();
-            StartCoroutine(Lerp());
+            GlobalData.Instance.currentChapterIndex = currentElementIndex;
+            GlobalData.Instance.currentChapter = GlobalData.Instance.chapters[currentElementIndex].chapterName;
         }
-    }
+        protected override void ListUpdate()
+        {
+            if (Input.touchCount > 0 &&
+                Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                float[] allElementDistanceWithFinger = new float[elementCount];//手指抬手的时候，所有元素距离当前值的距离（取绝对值）
+                for (int i = 0; i < elementCount; i++)
+                {
+                    allElementDistanceWithFinger[i] =
+                        Mathf.Abs(verticalBar.value - Single * i);
+                }
 
+                int minValue = 0;
+                for (int i = 1; i < allElementDistanceWithFinger.Length; i++)
+                {
+                    minValue = allElementDistanceWithFinger[i] < allElementDistanceWithFinger[i - 1] ? i : minValue;//判断哪个元素距离当前值最小
+                }
+                currentElement = allElementDistance[minValue];//复制索引值
+                //GlobalData.Instance.SelectChapter_CurrentChapter = minValue;
+                currentElementIndex = elementCount - 1 - minValue;
+                Send();
+                StartCoroutine(Lerp());
+            }
+        }
+
+    }
 }

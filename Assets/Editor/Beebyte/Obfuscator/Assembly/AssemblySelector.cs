@@ -6,17 +6,18 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
-#if UNITY_2017_3_OR_NEWER
+using Beebyte.Obfuscator;
 using UnityEditor.Compilation;
-#endif
 using UnityEngine;
+#if UNITY_2017_3_OR_NEWER
+#endif
 
-namespace Beebyte.Obfuscator.Assembly
+namespace Editor.Beebyte.Obfuscator.Assembly
 {
     public class AssemblySelector
     {
-        private readonly HashSet<string> _compiledAssemblyPaths = new HashSet<string>();
-        private readonly HashSet<string> _assemblyPaths = new HashSet<string>();
+        private readonly HashSet<string> compiledAssemblyPaths = new HashSet<string>();
+        private readonly HashSet<string> assemblyPaths = new HashSet<string>();
 
         public AssemblySelector(Options options)
         {
@@ -34,7 +35,7 @@ namespace Beebyte.Obfuscator.Assembly
                 string location = FindDllLocation(assemblyName);
                 if (location != null)
                 {
-                    _compiledAssemblyPaths.Add(location);
+                    compiledAssemblyPaths.Add(location);
                 }
             }
 
@@ -43,7 +44,7 @@ namespace Beebyte.Obfuscator.Assembly
                 string location = FindDllLocation(assemblyName);
                 if (location != null)
                 {
-                    _assemblyPaths.Add(location);
+                    assemblyPaths.Add(location);
                 }
             }
 
@@ -94,7 +95,7 @@ namespace Beebyte.Obfuscator.Assembly
                 // pipeline, however the file won't actually exist.
                 if (File.Exists(dllLocation))
                 {
-                    _assemblyPaths.Add(dllLocation);
+                    assemblyPaths.Add(dllLocation);
                 }
             }
 #endif
@@ -102,12 +103,12 @@ namespace Beebyte.Obfuscator.Assembly
 
         public ICollection<string> GetCompiledAssemblyPaths()
         {
-            return _compiledAssemblyPaths;
+            return compiledAssemblyPaths;
         }
 
         public ICollection<string> GetAssemblyPaths()
         {
-            return _assemblyPaths;
+            return assemblyPaths;
         }
 
         private static string FindDllLocation(string suffix)
