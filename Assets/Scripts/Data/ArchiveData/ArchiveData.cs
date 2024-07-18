@@ -21,7 +21,7 @@ namespace Data.ArchiveData
                 archive.chapterArchives = new ChapterArchive[GlobalData.Instance.chapters.Length];
                 for (int i = 0; i < archive.chapterArchives.Length; i++)
                 {
-                    archive.chapterArchives[i] = new()
+                    archive.chapterArchives[i] = new ChapterArchive
                     {
                         musicArchive = new MusicArchive[GlobalData.Instance.chapters[GlobalData.Instance.currentChapterIndex].musicPath.Length]
                     };
@@ -64,9 +64,8 @@ namespace Data.ArchiveData
                 "Green" => scoreGreen,
                 "Yellow" => scoreYellow,
                 "Red" => scoreRed,
-                _ => throw new Exception("如果你看到这条消息，请截图发给花水终，这有助于我们改进游戏！\n" +
-                    "存档系统出错！错误点：读取方法出错！\n" +
-                    "错误类型：没有找到对应的难度")
+                _ => throw new Exception("如果你看到这条消息,请截图并在群中@MojaveHao/Niubility748/HuaWaterED中的任意一位反馈\n" +
+                    "存档系统读取方法出错,难度未找到")
             };
             set
             {

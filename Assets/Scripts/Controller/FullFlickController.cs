@@ -6,9 +6,9 @@ namespace Controller
     public class FullFlickController : NoteController
     {
         public Transform textureBoss;//就是FullFlick音符的两个渲染贴图（Texture）的爸爸（
-        public bool isMoved = false;//是否已经移动了
+        public bool isMoved;//是否已经移动了
         private int decisionEndPoint;
-        public bool isJudgedComplete = false;//判定是否已经完成
+        public bool isJudgedComplete;//判定是否已经完成
         public override void Init()
         {
             ChangeColor(Color.white);//初始化为白色
@@ -73,7 +73,6 @@ namespace Controller
             if( !isJudged || !isMoved )//如果判定成功
                 return;
             PlayEffect(NoteJudge.Perfect, ValueManager.Instance.perfectJudge, true);
-            return;//返回
         }
         public override bool IsinRange(Vector2 currentPosition)
         {

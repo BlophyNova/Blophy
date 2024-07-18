@@ -13,7 +13,7 @@ namespace Manager
         /// </summary>
         protected override void OnAwake()
         {
-            hitEffect = new(AssetManager.Instance.hitEffect, 4, transform);//初始化，默认为4个，作为自己的儿子
+            hitEffect = new ObjectPoolQueue<HitEffectController>(AssetManager.Instance.hitEffect, 4, transform);//初始化，默认为4个，作为自己的儿子
         }
         /// <summary>
         /// 播放打击特效

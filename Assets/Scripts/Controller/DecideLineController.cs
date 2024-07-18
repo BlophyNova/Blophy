@@ -6,18 +6,18 @@ using UnityEngine;
 using UtilityCode.ObjectPool;
 using Vector3 = UnityEngine.Vector3;
 /*
-* 声明：
-* StartTime简称ST
-* EndTime简称ET
-* StartValue简称SV
-* EndValue简称EV
-* 
-* 百分比解释：
-* 因为Unity的AnimationCurve的Key的InWeight和OutWeight的表示
-* InWeight就是这个点距离上一个点为单位，自身为0，到上一个点的距离为1的表示法
-* OutWeight就是这个点距离下一个点为单位，自身为0，到下一个点的距离为1的表示法
-* 这里说为百分比是觉得百分比也是0-1之间的标准数值
-*/
+ * 声明：
+ * StartTime简称ST
+ * EndTime简称ET
+ * StartValue简称SV
+ * EndValue简称EV
+ *
+ * 百分比解释：
+ * 因为Unity的AnimationCurve的Key的InWeight和OutWeight的表示
+ * InWeight就是这个点距离上一个点为单位，自身为0，到上一个点的距离为1的表示法
+ * OutWeight就是这个点距离下一个点为单位，自身为0，到下一个点的距离为1的表示法
+ * 这里说为百分比是觉得百分比也是0-1之间的标准数值
+ */
 namespace Controller
 {
     public class DecideLineController : MonoBehaviour

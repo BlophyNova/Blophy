@@ -13,13 +13,13 @@ namespace UtilityCode.ObjectPool
         protected int SortSeed;
         protected ObjectPoolBase(T @object, int poolLength, int sortSeed, Transform parent = null)
         {
-            this.Parent = parent;
-            this.SortSeed = sortSeed;
+            Parent = parent;
+            SortSeed = sortSeed;
             PoolObject = @object;
         }
         protected ObjectPoolBase(T @object, int poolLength, Transform parent = null)
         {
-            this.Parent = parent;
+            Parent = parent;
             PoolObject = @object;
         }
         protected T CreateNote()
@@ -28,7 +28,7 @@ namespace UtilityCode.ObjectPool
             NoteController note = obj.GetComponent<NoteController>();
             for (int i = 0; i < note.renderOrder.Count; i++)
             {
-                foreach (var item in note.renderOrder[i].tierCount)
+                foreach (SpriteRenderer item in note.renderOrder[i].tierCount)
                 {
                     item.sortingOrder = SortSeed + 1 + i;
                 }
@@ -48,7 +48,7 @@ namespace UtilityCode.ObjectPool
         }
         protected T CreateObject()
         {
-            T obj = Object.Instantiate(PoolObject, Vector3.zero, Quaternion.identity, Parent == null ? PoolObject.transform : Parent);
+            T obj = Object.Instantiate(PoolObject, Vector3.zero, Quaternion.identity, !Parent ? PoolObject.transform : Parent);
             obj.gameObject.SetActive(false);
             return obj;
         }

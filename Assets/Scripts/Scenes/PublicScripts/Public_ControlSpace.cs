@@ -9,9 +9,9 @@ namespace Scenes.PublicScripts
         public float progressBar;
         public int elementCount;
         public float[] allElementDistance;//所有元素标准的距离（0-1之间的数据）
-        public float Single => 1f / (elementCount - 1);
-        public int currentElementIndex = 0;
-        public float currentElement = 0;
+        protected float Single => 1f / (elementCount - 1);
+        public int currentElementIndex;
+        public float currentElement;
         // Update is called once per frame
         private void Start()
         {
@@ -38,7 +38,7 @@ namespace Scenes.PublicScripts
         }
         protected virtual void LargeImageUpdate() { }
         protected virtual void ListUpdate() { }
-        public virtual void Send() { }
+        protected virtual void Send() { }
         protected IEnumerator Lerp()
         {
             while (Mathf.Abs(verticalBar.value - currentElement) > .0001f)

@@ -12,7 +12,7 @@ namespace Scenes.Gameplay
         public Image[] allTexture;
         public TextMeshProUGUI pauseText;
         public TextMeshProUGUI bigPauseText;
-        public bool isRunning = false;
+        public bool isRunning;
         public float textAlpha;
         public float bigTextAlpha;
         private void OnEnable()

@@ -5,11 +5,11 @@ namespace Manager
 {
     public class ProgressManager : MonoBehaviourSingleton<ProgressManager>
     {
-        private Stopwatch musicPlayerTime = new();//计时器，谱面时间和音乐时间的
+        private readonly Stopwatch musicPlayerTime = new Stopwatch();//计时器，谱面时间和音乐时间的
         private double dspStartPlayMusic;//开始时间
         private double dspLastPlayMusic;//上一次暂停后的时间
-        private double offset = 0;//偏移
-        private double skipTime = 0;//时间跳转
+        private double offset;//偏移
+        private double skipTime;//时间跳转
         public double CurrentTime => musicPlayerTime.ElapsedMilliseconds / 1000d + skipTime;//当前时间
 
 

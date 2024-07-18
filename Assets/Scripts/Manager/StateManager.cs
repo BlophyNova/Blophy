@@ -5,9 +5,9 @@ namespace Manager
 {
     public class StateManager : MonoBehaviourSingleton<StateManager>
     {
-        private bool isStart = false;//已经开始
-        private bool isEnd = false;//已经结束
-        private bool isPause = false;//已经暂停
+        private bool isStart;//已经开始
+        private bool isEnd;//已经结束
+        private bool isPause;//已经暂停
         public bool IsStart
         {
             get => isStart;
@@ -16,7 +16,7 @@ namespace Manager
                 if (isStart) return;//如果已经开始了就直接返回
                 isStart = value;//设置状态为开始
                 AssetManager.Instance.musicPlayer.PlayScheduled(AssetManager.Instance.chartData.globalData.offset + GlobalData.Instance.offset);//播放音乐，带上延迟
-                ProgressManager.Instance.StartPlay(default);//谱面开始播放
+                ProgressManager.Instance.StartPlay();//谱面开始播放
                 AssetManager.Instance.box.gameObject.SetActive(true);//激活所有方框
 
             }
@@ -26,7 +26,7 @@ namespace Manager
             get => isEnd;
             set => isEnd = value;
         }
-        public bool IsPause
+        private bool IsPause
         {
             get => isPause;
             set

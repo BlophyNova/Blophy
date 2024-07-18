@@ -1,4 +1,5 @@
 using Data.ChartData;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 using UtilityCode.Singleton;
@@ -7,9 +8,9 @@ namespace Manager
 {
     public class WebManager : MonoBehaviourSingleton<WebManager>
     {
-        public ChartData ChartData
+        public static ChartData ChartData
         {
-            get => AssetManager.Instance.chartData;
+            //get => AssetManager.Instance.chartData;
             set
             {
                 AssetManager.Instance.chartData = value;
@@ -26,15 +27,15 @@ namespace Manager
             }
 
         }
-        public AudioClip MusicClip
+        public static AudioClip MusicClip
         {
-            get => AssetManager.Instance.musicPlayer.clip;
+            [UsedImplicitly] get => AssetManager.Instance.musicPlayer.clip;
             set => AssetManager.Instance.musicPlayer.clip = value;
         }
-        public Image Background
+        public static Image Background
         {
             get => AssetManager.Instance.background;
-            set => AssetManager.Instance.background = value;
+            [UsedImplicitly] set => AssetManager.Instance.background = value; // 这里不能注释掉 不然后期没办法改背景了
         }
         private void Start()
         {

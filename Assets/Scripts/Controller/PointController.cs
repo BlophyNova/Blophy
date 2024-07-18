@@ -8,7 +8,7 @@ namespace Controller
         public float ariseTime;//出现时间
         public Vector2[] origins;//起点
         public Vector2[] destinations;//终点
-        private const int journeyLength = 4;//路程长度，就是说，有多少个需要处理的起点终点，在这里有四个角(左上左下右上右下)，所以答案就是4
+        private const int JourneyLength = 4;//路程长度，就是说，有多少个需要处理的起点终点，在这里有四个角(左上左下右上右下)，所以答案就是4
         [FormerlySerializedAs("move_edgeCorner")]
         public Transform[] moveEdgeCorner;//需要移动的边缘的角（就是需要向里缩的）
         public SpriteRenderer[] allHorizontal;//水平的渲染器
@@ -35,7 +35,7 @@ namespace Controller
             {
                 return;//返回
             }
-            for (int i = 0; i < journeyLength; i++)//循环--遍历所有角，计算位置
+            for (int i = 0; i < JourneyLength; i++)//循环--遍历所有角，计算位置
             {
                 //move_edgeCorner[i].localPosition = (destinations[i] - origins[i]) * (1 - percent) + origins[i];//这是从中间向周围扩散
                 moveEdgeCorner[i].localPosition = (destinations[i] - origins[i]) * percent + origins[i];//（终点-起点）*百分比+起点

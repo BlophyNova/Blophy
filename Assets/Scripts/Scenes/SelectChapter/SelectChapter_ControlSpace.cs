@@ -6,7 +6,7 @@ namespace Scenes.SelectChapter
     public class SelectChapterControlSpace : PublicControlSpace
     {
 
-        public override void Send()
+        protected override void Send()
         {
             GlobalData.Instance.currentChapterIndex = currentElementIndex;
             GlobalData.Instance.currentChapter = GlobalData.Instance.chapters[currentElementIndex].chapterName;

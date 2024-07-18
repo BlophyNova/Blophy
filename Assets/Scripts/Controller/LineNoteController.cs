@@ -19,11 +19,11 @@ namespace Controller
         [FormerlySerializedAs("endTime_ariseOfflineNotes")]
         public List<NoteController> endTimeAriseOfflineNotes = new();//判定线下方已经出现的音符列表,按照EndTime排序
 
-        public int lastOnlineIndex = 0;//上次召唤到Note[]列表的什么位置了，从上次的位置继续
-        public int lastOfflineIndex = 0;//上次召唤到Note[]列表的什么位置了，从上次的位置继续
+        public int lastOnlineIndex;//上次召唤到Note[]列表的什么位置了，从上次的位置继续
+        public int lastOfflineIndex;//上次召唤到Note[]列表的什么位置了，从上次的位置继续
 
-        public int movedOnlineNotesCount = 0;
-        public int movedOfflineNotesCount = 0;
+        public int movedOnlineNotesCount;
+        public int movedOfflineNotesCount;
 
         private void Update()
         {
@@ -192,11 +192,8 @@ namespace Controller
                 //UIManager.Instance.DebugTextString = $"onlineJudge:{onlineJudge}||offlineJudge:{offlineJudge}||Result:true ||inThisLine:{inThisLine}";
                 return true;//返回是
             }
-            else
-            {
-                //UIManager.Instance.DebugTextString = $"onlineJudge:{onlineJudge}||offlineJudge:{offlineJudge}||Result:false||inThisLine:{inThisLine}";
-                return false;//返回否
-            }
+            //UIManager.Instance.DebugTextString = $"onlineJudge:{onlineJudge}||offlineJudge:{offlineJudge}||Result:false||inThisLine:{inThisLine}";
+            return false;//返回否
         }
     }
 }

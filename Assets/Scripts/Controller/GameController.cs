@@ -8,7 +8,7 @@ namespace Controller
 {
     public class GameController : MonoBehaviourSingleton<GameController>
     {
-        public bool isLoading = false;
+        public bool isLoading;
         private IEnumerator Start()
         {
             isLoading = false;

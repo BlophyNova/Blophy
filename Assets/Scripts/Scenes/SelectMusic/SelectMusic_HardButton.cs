@@ -14,7 +14,7 @@ namespace Scenes.SelectMusic
         public Color selectedColor;
         public Color unselectColor;
         public string hardLevel;
-        public bool isSelected = false;
+        public bool isSelected;
         public bool IsSelected
         {
             get => isSelected;

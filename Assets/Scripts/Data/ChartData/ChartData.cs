@@ -104,7 +104,7 @@ namespace Data.ChartData
         [JsonIgnore]
         public float HoldTime
         {
-            get => holdTime == 0 ? JudgeManager.bad : holdTime;
+            get => holdTime == 0 ? JudgeManager.Bad : holdTime;
             set => holdTime = value;
         }
         public NoteEffect effect;

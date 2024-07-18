@@ -10,17 +10,19 @@ namespace Scenes.DontDestoryOnLoad
         public string iPhoneArchiveDataPath;
         private void Start()
         {
-            if (Application.isEditor)
+            switch (Application.platform)
             {
-                currentPlatformArchiveDataPath = editorArchiveDataPath;
-            }
-            else if (Application.platform == RuntimePlatform.Android)
-            {
-                currentPlatformArchiveDataPath = androidArchiveDataPath;
-            }
-            else if (Application.platform == RuntimePlatform.IPhonePlayer)
-            {
-                currentPlatformArchiveDataPath = iPhoneArchiveDataPath;
+                case RuntimePlatform.Android:
+                    currentPlatformArchiveDataPath = androidArchiveDataPath;
+                    break;
+                case RuntimePlatform.IPhonePlayer:
+                    currentPlatformArchiveDataPath = iPhoneArchiveDataPath;
+                    break;
+                default:
+                    if( !Application.isEditor )
+                        return;
+                    currentPlatformArchiveDataPath = editorArchiveDataPath;
+                    break;
             }
         }
     }

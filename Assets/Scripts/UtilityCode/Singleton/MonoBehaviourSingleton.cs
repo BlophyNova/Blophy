@@ -7,7 +7,7 @@ namespace UtilityCode.Singleton
 
         private void Awake()
         {
-            if (Instance == null)
+            if (!Instance)
             {
                 Instance = GetComponent<T>();
             }

@@ -111,12 +111,14 @@ namespace Scenes.DontDestoryOnLoad
         public int flickCount;
         public int fullFlickCount;
         public int pointCount;
+        /* 我也不知道这一堆变量有什么卵用 所以注释掉了
         public int JudgedTapCount => tapPerfect + tapGood + tapBad + tapMiss;
         public int JudgedHoldCount => holdPerfect + holdGood + holdMiss;
         public int JudgedDragCount => dragPerfect + dragMiss;
         public int JudgedFlickCount => flickPerfect + flickMiss;
         public int JudgedFullFlickCount => fullFlickPerfect + fullFlickMiss;
         public int JudgedPointCount => pointPerfect + pointGood + pointMiss;
+        */
         public int NoteCount => tapCount + holdCount + dragCount + flickCount + fullFlickCount + pointCount;
         public float Accuracy => (Perfect + Good * ValueManager.Instance.goodJudgePercent) / NoteCount;
 
@@ -207,7 +209,10 @@ namespace Scenes.DontDestoryOnLoad
                 case NoteJudge.Perfect://完美
                     AddScorePerfect(noteType);
                     break;
-                case NoteJudge.Good://好
+                case NoteJudge.Early://开 心 早 了
+                    AddScoreGood(noteType, isEarly);
+                    break;
+                case NoteJudge.Late://后 知 后 觉
                     AddScoreGood(noteType, isEarly);
                     break;
                 case NoteJudge.Bad://坏
@@ -216,6 +221,8 @@ namespace Scenes.DontDestoryOnLoad
                 case NoteJudge.Miss://小姐
                     AddScoreMiss(noteType);
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(noteJudge), noteJudge, null);
             }
             UIManager.Instance.ChangeComboAndScoreText(Combo, Score);
         }
@@ -256,10 +263,8 @@ namespace Scenes.DontDestoryOnLoad
                     Combo = 0;
                     break;
                 default:
-                    Debug.LogError($"如果你看到这条消息，请截图发给花水终，这有助于我们改进游戏！\n" +
-                        $"分数系统出错！\n" +
-                        $"错误点：加分方法出错！" +
-                        $"错误类型：小姐判定，没找到音符类型");
+                    Debug.LogError("如果你看到这条消息,请截图并在群里@MojaveHao/Niubility748/HuaWaterED进行反馈\n" +
+                        "加分出错:Miss但未找到音符类型");
                     break;
             }
         }
@@ -298,10 +303,8 @@ namespace Scenes.DontDestoryOnLoad
                     }
                     break;
                 default:
-                    Debug.LogError($"如果你看到这条消息，请截图发给花水终，这有助于我们改进游戏！\n" +
-                        $"分数系统出错！\n" +
-                        $"错误点：加分方法出错！" +
-                        $"错误类型：坏判定，没找到音符类型");
+                    Debug.LogError("如果你看到这条消息,请截图并在群里@MojaveHao/Niubility748/HuaWaterED进行反馈\n" +
+                        "加分出错:Bad但未找到音符类型");
                     break;
             }
         }
@@ -354,10 +357,8 @@ namespace Scenes.DontDestoryOnLoad
                     Combo++;
                     break;
                 default:
-                    Debug.LogError($"如果你看到这条消息，请截图发给花水终，这有助于我们改进游戏！\n" +
-                        $"分数系统出错！\n" +
-                        $"错误点：加分方法出错！" +
-                        $"错误类型：好判定，没找到音符类型");
+                    Debug.LogError("如果你看到这条消息,请截图并在群里@MojaveHao/Niubility748/HuaWaterED进行反馈\n" +
+                        "加分出错:Good但未找到音符类型");
                     break;
             }
         }
@@ -398,10 +399,8 @@ namespace Scenes.DontDestoryOnLoad
                     Combo++;
                     break;
                 default:
-                    Debug.LogError($"如果你看到这条消息，请截图发给花水终，这有助于我们改进游戏！\n" +
-                        $"分数系统出错！\n" +
-                        $"错误点：加分方法出错！" +
-                        $"错误类型：完美判定，没找到音符类型");
+                    Debug.LogError("如果你看到这条消息,请截图并在群里@MojaveHao/Niubility748/HuaWaterED进行反馈\n" +
+                        "加分出错:Perfect但未找到音符类型");
                     break;
             }
         }

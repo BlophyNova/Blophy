@@ -13,7 +13,7 @@ namespace Controller
         public List<RenderOrder> renderOrder;//渲染层级
         [FormerlySerializedAs("length_renderOrder")]
         public int lengthRenderOrder = -1;//一共多少层
-        public int LengthRenderOrder
+        protected int LengthRenderOrder
         {
             get
             {
@@ -29,11 +29,11 @@ namespace Controller
         public Sprite multiTexture;
 
         public bool isOnlineNote;//是否事判定线上方的音符
-        public bool isJudged = false;//是否已经判定过了
+        public bool isJudged;//是否已经判定过了
 
         public Transform noteCanvas;//音符画布的引用
 
-        public float PointNoteCurrentOffset => decideLineController.canvasLocalOffset.Evaluate((float)ProgressManager.Instance.CurrentTime);//根据当前速度计算出按照当前的位移就是现在的Point应该在的位置
+        protected float PointNoteCurrentOffset => decideLineController.canvasLocalOffset.Evaluate((float)ProgressManager.Instance.CurrentTime);//根据当前速度计算出按照当前的位移就是现在的Point应该在的位置
         /// <summary>
         /// 从对象池出来召唤一次
         /// </summary>
@@ -44,7 +44,7 @@ namespace Controller
             isJudged = false;//重置isJudged
 
         }//初始化方法
-        public virtual void MultiOrCommon() =>
+        protected virtual void MultiOrCommon() =>
             texture.sprite = thisNote.hasOther switch
             {
                 true => multiTexture,
@@ -82,15 +82,18 @@ namespace Controller
         /// <summary>
         /// 吧音符返回对象池
         /// </summary>
-        protected void ReturnObjectPool()
+        private void ReturnObjectPool()
         {
-            switch (isOnlineNote)//看看自己试线上的音符还是线下的音符
+            switch (isOnlineNote)
             {
-                case true://线上的音符的话就从两个线上排序中移除自己
+                //看看自己是线上的音符还是线下的音符
+                case true:
+                    //线上的音符的话就从两个线上排序中移除自己
                     decideLineController.lineNoteController.ariseOnlineNotes.Remove(this);//hitTime排序中移除自己
                     decideLineController.lineNoteController.endTimeAriseOnlineNotes.Remove(this);//endTime排序中移除自己
                     break;
-                case false://线下的音符的话就从两个线下排序中移除自己
+                case false:
+                    //线下的音符的话就从两个线下排序中移除自己
                     decideLineController.lineNoteController.ariseOfflineNotes.Remove(this);//hitTime排序中移除自己
                     decideLineController.lineNoteController.endTimeAriseOfflineNotes.Remove(this);//endTime排序中移除自己
                     break;
@@ -126,7 +129,7 @@ namespace Controller
         /// </summary>
         public virtual void ReturnPool()
         {
-            JudgeLevel(out NoteJudge noteJudge, out bool isEarly);//获得到判定等级，Perfect？Good？Bad？Miss？Early？Late？
+            JudgeLevel(out NoteJudge noteJudge, out bool isEarly);//获得到判定等级，Perfect？Early？Bad？Miss？Early？Late？
             Color hitJudgeEffectColor = GetColorWithNoteJudge(noteJudge);//根据判定等级获得到打击特效的颜色
 
             PlayEffect(noteJudge, hitJudgeEffectColor, isEarly);
@@ -134,17 +137,17 @@ namespace Controller
         /// <summary>
         /// 完成判定调用的方法
         /// </summary>
-        public void CompletedJudge()
+        protected void CompletedJudge()
         {
             HitSoundManager.Instance.PlayHitSound(thisNote.noteType);
         }
-        public virtual void PlayRipple() => decideLineController.box.PlayRipple();
-        public virtual void PlayEffect(NoteJudge noteJudge, Color hitJudgeEffectColor, bool isEarly)
+        protected virtual void PlayRipple() => decideLineController.box.PlayRipple();
+        protected virtual void PlayEffect(NoteJudge noteJudge, Color hitJudgeEffectColor, bool isEarly)
         {
             PlayEffectWithoutAddScore(noteJudge, hitJudgeEffectColor, isEarly);
             GlobalData.Instance.score.AddScore(thisNote.noteType, noteJudge, isEarly);//加分
         }
-        public virtual void PlayEffectWithoutAddScore(NoteJudge noteJudge, Color hitJudgeEffectColor, bool isEarly)
+        protected virtual void PlayEffectWithoutAddScore(NoteJudge noteJudge, Color hitJudgeEffectColor, bool isEarly)
         {
             switch (noteJudge)//判定等级枚举
             {
@@ -190,7 +193,7 @@ namespace Controller
             return noteJudge switch
             {
                 NoteJudge.Perfect => ValueManager.Instance.perfectJudge,//如果是P、G、B就拿到对应的颜色
-                NoteJudge.Good => ValueManager.Instance.goodJudge,      //如果是P、G、B就拿到对应的颜色
+                NoteJudge.Early => ValueManager.Instance.goodJudge,      //如果是P、G、B就拿到对应的颜色
                 NoteJudge.Bad => ValueManager.Instance.badJudge,        //如果是P、G、B就拿到对应的颜色
                 _ => ValueManager.Instance.otherJudge,//其他则Other，这个颜色的出现代表有bug
             };
@@ -200,37 +203,38 @@ namespace Controller
         /// </summary>
         /// <param name="noteJudge">输出判定等级</param>
         /// <param name="isEarly">输出早还是晚</param>
-        public virtual void JudgeLevel(out NoteJudge noteJudge, out bool isEarly)
+        protected virtual void JudgeLevel(out NoteJudge noteJudge, out bool isEarly)
         {
             float currentTime = (float)ProgressManager.Instance.CurrentTime;//获取到当前时间
             noteJudge = NoteJudge.Miss;//默认Miss
             isEarly = true;//默认是早的
-            if (currentTime < thisNote.hitTime + JudgeManager.perfect &&
-                currentTime > thisNote.hitTime - JudgeManager.perfect)//如果在hitTime+perfect和hitTime-perfect之间
+            if (currentTime < thisNote.hitTime + JudgeManager.Perfect &&
+                currentTime > thisNote.hitTime - JudgeManager.Perfect)//如果在hitTime+perfect和hitTime-perfect之间
             {
                 noteJudge = NoteJudge.Perfect;//完美判定
             }
             else if (currentTime < thisNote.hitTime &&//如果在打击时间-good到打击时间之间
-                currentTime > thisNote.hitTime - JudgeManager.good)
+                currentTime > thisNote.hitTime - JudgeManager.Good)
             {
-                noteJudge = NoteJudge.Good;//Good判定，Early默认是True，所以这里不理会isEarly
+                noteJudge = NoteJudge.Early;//Good判定，Early默认是True，所以这里不理会isEarly
             }
-            else if (currentTime < thisNote.hitTime + JudgeManager.good &&
+            else if (currentTime < thisNote.hitTime + JudgeManager.Good &&
                 currentTime > thisNote.hitTime)//如果在打击时间+good到打击时间之间
             {
-                noteJudge = NoteJudge.Good;//Good判定
-                isEarly = false;//LateGood设置
+                noteJudge = NoteJudge.Late;//Good判定
             }
             else if (currentTime < thisNote.hitTime &&//如果在打击时间-bad到打击时间之间
-                currentTime > thisNote.hitTime - JudgeManager.bad)
+                currentTime > thisNote.hitTime - JudgeManager.Bad)
             {
                 noteJudge = NoteJudge.Bad;//Bad判定
             }
+            /* LateBad是个什么东西啊喂
             else if (isJudged)//如果是坏判定，晚
             {
                 noteJudge = NoteJudge.Bad;//Bad判定
                 isEarly = false;//LateBad设置
             }
+            */
         }
         /// <summary>
         /// 判定触摸是否在音符的数轴判定范围内（非空）
@@ -244,17 +248,12 @@ namespace Controller
 
             float inThisLine = transform.InverseTransformPoint(currentPosition).x;//将手指的世界坐标转换为局部坐标后的x拿到
 
-            if (inThisLine <= ValueManager.Instance.noteRightJudgeRange &&//如果x介于ValueManager设定的数值之间
-                inThisLine >= ValueManager.Instance.noteLeftJudgeRange)
-            {
-                //UIManager.Instance.DebugTextString = $"onlineJudge:{onlineJudge}||offlineJudge:{offlineJudge}||Result:true ||inThisLine:{inThisLine}";
-                return true;//返回是
-            }
-            else
-            {
-                //UIManager.Instance.DebugTextString = $"onlineJudge:{onlineJudge}||offlineJudge:{offlineJudge}||Result:false||inThisLine:{inThisLine}";
-                return false;//返回否
-            }
+            return inThisLine <= ValueManager.Instance.noteRightJudgeRange &&//如果x介于ValueManager设定的数值之间
+                inThisLine >= ValueManager.Instance.noteLeftJudgeRange;
+            //UIManager.Instance.DebugTextString = $"onlineJudge:{onlineJudge}||offlineJudge:{offlineJudge}||Result:true ||inThisLine:{inThisLine}";
+            //返回是
+            //UIManager.Instance.DebugTextString = $"onlineJudge:{onlineJudge}||offlineJudge:{offlineJudge}||Result:false||inThisLine:{inThisLine}";
+            //返回否
         }
 
     }

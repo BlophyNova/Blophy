@@ -1,6 +1,5 @@
 using Scenes.Loading;
 using Scenes.PublicScripts;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace Scenes.Title
 {
@@ -8,7 +7,7 @@ namespace Scenes.Title
     {
         private void Start()
         {
-            SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive).completed += (AsyncOperation a) =>
+            SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive).completed += a =>
                 LoadingController.Instance.SetLoadSceneByName("SelectChapter");
 
             thisButton.onClick.AddListener(() => LoadingController.Instance.StartLoad());

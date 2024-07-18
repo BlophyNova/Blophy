@@ -10,9 +10,9 @@ namespace Controller
 
         public float remainTime;//停留时间
 
-        public bool reJudge = false;//如果已经可以重新播放特效了，有没有重新播放，默认为没有
-        public bool isMissed = false;//Miss掉了
-        public float reJudgeTime = 0;//距离上一次打击特效播放已经过去多久了
+        public bool reJudge;//如果已经可以重新播放特效了，有没有重新播放，默认为没有
+        public bool isMissed;//Miss掉了
+        public float reJudgeTime;//距离上一次打击特效播放已经过去多久了
         public float checkTime = -.1f;//手指离开了多长时间
 
         private NoteJudge noteJudge;
@@ -89,12 +89,12 @@ namespace Controller
         /// </summary>
         /// <param name="noteJudge">判定等级</param>
         /// <param name="isEarly">是否过早</param>
-        public override void JudgeLevel(out NoteJudge noteJudge, out bool isEarly)
+        protected override void JudgeLevel(out NoteJudge noteJudge, out bool isEarly)
         {
             base.JudgeLevel(out noteJudge, out isEarly);
             noteJudge = noteJudge switch
             {
-                NoteJudge.Bad => NoteJudge.Good,//过滤bad为Good判定
+                // NoteJudge.Bad => NoteJudge.Early,//过滤bad为Good判定
                 _ => noteJudge
             };
         }
@@ -130,11 +130,10 @@ namespace Controller
                     reJudge = false;//重判一次完成后就设置状态
                 }
             }
-            if (ProgressManager.Instance.CurrentTime >= thisNote.hitTime + JudgeManager.bad && !isJudged && !isMissed)//如果当前时间已经超过了打击时间+bad时间（也就是一开始就没有按下手指）并且没有判定过并且没有Miss
-            {
-                isMissed = true;//这个条件下肯定已经Miss了，设置状态
-                HoldMiss();//调用Miss函数
-            }
+            if( !(ProgressManager.Instance.CurrentTime >= thisNote.hitTime + JudgeManager.Bad) || isJudged || isMissed )//如果当前时间已经超过了打击时间+bad时间（也就是一开始就没有按下手指）并且没有判定过并且没有Miss
+                return;
+            isMissed = true;//这个条件下肯定已经Miss了，设置状态
+            HoldMiss();//调用Miss函数
         }
 
         public override void PassHitTime(double currentTime)

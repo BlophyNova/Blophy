@@ -8,6 +8,6 @@ namespace UtilityCode.Singleton
             Instance = new T();
         }
 
-        public static T Instance { get; } = null;
+        public static T Instance { get; }
     }
 }

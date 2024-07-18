@@ -27,7 +27,7 @@ namespace Scenes.Loading
             }
             Action?.Invoke();
         }
-        public void CompleteLoad()
+        private void CompleteLoad()
         {
             StartCoroutine(Alpha1_0());
         }
@@ -46,8 +46,8 @@ namespace Scenes.Loading
         {
             Action = () =>
             {
-                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()).completed += (AsyncOperation a) => 
-                    SceneManager.LoadSceneAsync(targetSceneName, LoadSceneMode.Additive).completed += (AsyncOperation a) =>
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()).completed += a => 
+                    SceneManager.LoadSceneAsync(targetSceneName, LoadSceneMode.Additive).completed += a =>
                     {
                         SceneManager.SetActiveScene(SceneManager.GetSceneByName(targetSceneName));
                         CompleteLoad();

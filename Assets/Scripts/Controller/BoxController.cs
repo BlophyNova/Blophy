@@ -21,7 +21,7 @@ namespace Controller
 
         public Box box;//谱面，单独这个box的谱面
 
-        public int sortSeed = 0;//层级顺序种子
+        public int sortSeed;//层级顺序种子
         public SpriteMask spriteMask;//遮罩
 
         public float currentScaleX;

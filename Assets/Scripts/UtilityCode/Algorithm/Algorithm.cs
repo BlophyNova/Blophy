@@ -43,10 +43,9 @@ namespace UtilityCode.Algorithm
         {
             int left = -1;//左初始化为-1
             int right = list.Length;//右初始化为数量
-            int middle;//m无默认值
             while (left + 1 != right)//如果l和r的下标没有挨在一起
             {
-                middle = (left + right) / 2;//将数据除2
+                int middle = (left + right) / 2;//m无默认值
                 if (match(list[middle], ref currentTime))
                 {
                     left = middle;//更新右边界
@@ -74,10 +73,9 @@ namespace UtilityCode.Algorithm
         {
             int left = -1;//左初始化为-1
             int right = list.Count;//右初始化为数量
-            int middle;//m无默认值
             while (left + 1 != right)//如果l和r的下标没有挨在一起
             {
-                middle = (left + right) / 2;//将数据除2
+                int middle = (left + right) / 2;//m无默认值
                 if (match(list[middle]))
                 {
                     left = middle;//更新右边界
@@ -111,7 +109,7 @@ namespace UtilityCode.Algorithm
                 }
             }
             if (list.Length == 0) return -1;
-            return list[l].time == targetTime ? l : -1;//返回最终结果
+            return Math.Abs(list[l].time - targetTime) < 0.0000000001 ? l : -1;//返回最终结果
         }
     }
 }

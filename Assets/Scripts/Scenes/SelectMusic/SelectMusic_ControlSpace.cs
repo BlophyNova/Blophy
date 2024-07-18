@@ -13,7 +13,7 @@ namespace Scenes.SelectMusic
         private void Awake() => instance = this;
         public string[] musics;
         public Image musicPrefab;
-        public new IEnumerator Send()
+        private static new IEnumerator Send()
         {
             ResourceRequest rawChart = Resources.LoadAsync<TextAsset>($"MusicPack/{GlobalData.Instance.currentChapter}/{GlobalData.Instance.currentMusic}/ChartFile/{GlobalData.Instance.currentHard}/Chart");
             yield return rawChart;
@@ -74,14 +74,15 @@ namespace Scenes.SelectMusic
         private Vector2 endPoint;
         protected override void LargeImageUpdate()
         {
-            if (Input.touchCount > 0)
+            if( Input.touchCount <= 0 )
+                return;
+            Touch touch = Input.GetTouch(0);
+            switch (touch.phase)
             {
-                Touch touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Began)
-                {
+                case TouchPhase.Began:
                     startPoint = touch.position;
-                }
-                if (touch.phase == TouchPhase.Ended)
+                    break;
+                case TouchPhase.Ended:
                 {
                     endPoint = touch.position;
                     float deltaY = (endPoint - startPoint).y;
@@ -96,6 +97,7 @@ namespace Scenes.SelectMusic
                     UploadSyncMusicIndex();
                     StartCoroutine(Send());
                     StartCoroutine(Lerp());
+                    break;
                 }
             }
         }

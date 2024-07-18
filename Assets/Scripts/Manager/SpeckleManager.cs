@@ -12,9 +12,9 @@ namespace Manager
     {
         public Speckle[] speckles;//手指触摸列表
 
-        public List<LineNoteController> allLineNoteControllers = new();//所有的判定线，一个框默认五个判定线
-        public List<LineNoteController> isInRangeLine = new();//根据横轴判定，在范围内的判定线列表
-        public List<NoteController> waitNote = new();//等待确定判定的音符
+        public List<LineNoteController> allLineNoteControllers = new List<LineNoteController>();//所有的判定线，一个框默认五个判定线
+        public List<LineNoteController> isInRangeLine = new List<LineNoteController>();//根据横轴判定，在范围内的判定线列表
+        public List<NoteController> waitNote = new List<NoteController>();//等待确定判定的音符
         public int lineNoteControllerCount = -1;//初始化为-1
         public int LineNoteControllerCount
         {
@@ -149,7 +149,7 @@ namespace Manager
         {
             double currentTime = ProgressManager.Instance.CurrentTime;//拿到当前时间
             int indexStartJudgeNeedJudgeNote = Algorithm.BinarySearch(needFindNotes, m => m.thisNote.hitTime < currentTime - m.thisNote.HoldTime, false);//获取到当前时间-bad所得到的需要判定的音符的开始界限
-            int indexEndJudgeNeedJudgeNote = Algorithm.BinarySearch(needFindNotes, m => m.thisNote.hitTime < currentTime + JudgeManager.bad, false);//获取到当前时间+bad所得到的需要判定的音符的结束界限
+            int indexEndJudgeNeedJudgeNote = Algorithm.BinarySearch(needFindNotes, m => m.thisNote.hitTime < currentTime + JudgeManager.Bad, false);//获取到当前时间+bad所得到的需要判定的音符的结束界限
             for (int i = indexStartJudgeNeedJudgeNote; i < indexEndJudgeNeedJudgeNote; i++)//每根线遍历每个出现的音符
             {
                 int index = Algorithm.BinarySearch(waitNote, m => m.thisNote.hitTime < needFindNotes[i].thisNote.hitTime, false);//寻找这个音符按照hitTime排序的话，应该插在什么位置
