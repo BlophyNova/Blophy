@@ -16,33 +16,43 @@ jobs:
 
       - name: Set up Unity
         uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           unityVersion: 2021.3.38f1
           targetPlatform: Android
           projectPath: .
           buildName: Blophy
           buildPath: build/android
-          license: ${{ secrets.UNITY_LICENSE }}
+          
 
       - name: Build Android
         uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           unityVersion: 2021.3.38f1
           targetPlatform: Android
           projectPath: .
           buildName: Blophy
           buildPath: build/android
-          license: ${{ secrets.UNITY_LICENSE }}
 
       - name: Build iOS
         uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           unityVersion: 2021.3.38f1
           targetPlatform: iOS
           projectPath: .
           buildName: Blophy
           buildPath: build/ios
-          license: ${{ secrets.UNITY_LICENSE }}
 
       - name: Upload Android Build
         uses: actions/upload-artifact@v2
