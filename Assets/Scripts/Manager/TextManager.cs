@@ -30,11 +30,8 @@ namespace Manager
                 {
                     break;// 如果当前文本还没有开始时间，则跳出循环
                 }
-                else
-                {
-                    textObjectPool.PrepareObject().Init(texts[i], textObjectPool);
-                    lastIndex++;
-                }
+                textObjectPool.PrepareObject().Init(texts[i], textObjectPool);
+                lastIndex++;
 
             }
         }
