@@ -1,0 +1,6 @@
+﻿[Metadata]
+name = "第一章"
+description = ""
+cover = "cover.png"
+indexs = ["Base", "FruitySpace", "Like", "VirtualSpace"]
+average_level = 6

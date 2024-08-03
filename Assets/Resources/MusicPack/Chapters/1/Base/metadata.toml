@@ -1,0 +1,30 @@
+﻿[Metadata]
+name = "Base"
+description = "Tutorial"
+cover = "Backgrounds/bg.png"
+
+[Metadata.Music]
+source = "Music/Base.ogg"
+author = ["TSP_errorNum"]
+bpm = 128.2
+offset = 0.0
+length = 115.0
+
+[Chart]
+
+[Chart.Easy]
+author = [""]
+source = "Charts/Easy/base.json"
+
+[Chart.Easy.Illustration]
+author = [""]
+source = "Backgrounds/bg.png"
+
+[Chart.Easy.Statistics]
+tap = 59
+hold = 7
+drag = 69
+flick = 0
+fullFlick = 4
+point = 4
+

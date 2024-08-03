@@ -52,3 +52,5 @@ Blophy，启动！
 你miss了，就一定miss了吧
 急急急，怎么还不更新
 致敬传奇耐似王Blotchy
+bug反馈请致电群管理
+Null Reference Exception
