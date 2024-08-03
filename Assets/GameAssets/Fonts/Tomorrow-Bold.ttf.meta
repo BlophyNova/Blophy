@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: cccf0d58dfd745246b77764c703ad489
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Tomorrow
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2709b11ede52c3b438c0204bfc8c8505, type: 3}
+  - {fileID: 12800000, guid: 503bfd3efb136524f85e620bf943d09c, type: 3}
+  - {fileID: 12800000, guid: c7cc5ce6b28013c4dbb62b8f5b39b4c2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
