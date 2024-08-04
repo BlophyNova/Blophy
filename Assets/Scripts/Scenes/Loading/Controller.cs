@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,23 +11,25 @@ namespace Scenes.Loading
 {
     public class Controller : MonoBehaviourSingleton<Controller>
     {
-        public Image white;
+        public Image background;
         private Action action;
         public float animationDuration = 1f; // 引入的控制动画显示时间的变量
         public TextMeshProUGUI tip;
+        public int sleepTime = 2000;
         public void StartLoad()
         {
             StartCoroutine(IncreaseAlphaAndSetTips());
         }
         private IEnumerator IncreaseAlphaAndSetTips()
         {
-            white.gameObject.SetActive(true);
-            tip.gameObject.SetActive(false);
-            Color color = Color.white;
-            Color tipColor = Color.black;
-            color.a = 0;
+            background.gameObject.SetActive(true);
+            Color backgroundColor = Color.black;
+            Color tipColor = Color.white;
+            backgroundColor.a = 0;
             tipColor.a = 0;
-            float elapsedTime = 0;
+            background.color = backgroundColor;
+            tip.color = tipColor;
+            float elapsedTime = 0f;
             TextAsset textAssets = Resources.Load<TextAsset>("Tips/tips");
             string text = textAssets.text;
             string[] tips = text.Split('\n');
@@ -35,51 +38,51 @@ namespace Scenes.Loading
             string tipText = tips[index];
             tip.text = "|Tip: " + tipText;
             tip.gameObject.SetActive(true);
-            while (elapsedTime < animationDuration)
+            while (elapsedTime <= animationDuration * 2)
             {
-                color.a = Mathf.Clamp01(elapsedTime / animationDuration);
-                white.color = color;
-                if( elapsedTime > animationDuration * 0.3 )
+                if (elapsedTime <= animationDuration){
+                    backgroundColor.a = Mathf.Clamp01(elapsedTime / animationDuration);
+                    background.color = backgroundColor;
+                }
+                if(elapsedTime > animationDuration)
                 {
-                    tip.gameObject.SetActive(true);
-                    tipColor.a = color.a;
+                    tipColor.a = Mathf.Clamp01(elapsedTime / animationDuration - 1);
                     tip.color = tipColor;
                 }
                 elapsedTime += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
-
-            color.a = 1;
-            white.color = color;
             action?.Invoke();
         }
         private void CompleteLoad()
         {
+            Thread.Sleep(sleepTime);
             StartCoroutine(DecreaseAlpha());
         }
         private IEnumerator DecreaseAlpha()
         {
-            Color color = Color.white;
-            Color tipColor = Color.black;
-            float elapsedTime = 0;
-
-            while (elapsedTime < animationDuration)
+            Color backgroundColor = Color.black;
+            Color tipColor = Color.white;
+            float elapsedTime = 0f;
+            while (elapsedTime <= animationDuration * 2)
             {
-                color.a = Mathf.Clamp01(1 - (elapsedTime / animationDuration));
-                white.color = color;
-                if( elapsedTime <= animationDuration * 0.7 )
+                Debug.Log("elapsedTime" + elapsedTime);
+                Debug.Log("deltaTime" + Time.deltaTime);
+                if (elapsedTime <= animationDuration)
                 {
-                    tipColor.a = color.a;
+                    tipColor.a = Mathf.Clamp01(1 - elapsedTime / animationDuration);
                     tip.color = tipColor;
                 }
-                else { tip.gameObject.SetActive(false); }
+                if (elapsedTime > animationDuration)
+                {
+                    backgroundColor.a = Mathf.Clamp01(2 - elapsedTime / animationDuration);
+                    background.color = backgroundColor;
+                }
                 elapsedTime += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
-
-            color.a = 0;
-            white.color = color;
-            white.gameObject.SetActive(false);
+            background.gameObject.SetActive(false);
+            tip.gameObject.SetActive(false);
         }
         public Controller SetLoadSceneByName(string targetSceneName)
         {
