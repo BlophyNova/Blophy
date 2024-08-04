@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: bf207c0446822ae49b7acf7b4d217a64
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Tomorrow ExtraBold
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 13937951a8d382e43bf997684ba496d7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
