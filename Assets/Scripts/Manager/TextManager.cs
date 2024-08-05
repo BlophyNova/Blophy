@@ -11,11 +11,11 @@ namespace Manager
         public Text[] texts;
         public int lastIndex;//上次召唤到Note[]列表的什么位置了，从上次的位置继续
         public ObjectPoolQueue<TextController> textObjectPool;
-        public void Init(Text[] texts)
+        public void Init(Text[] text)
         {
-            this.texts = texts;
+            this.texts = text;
             textObjectPool = new ObjectPoolQueue<TextController>(AssetManager.Instance.text, 0, textCanvas);
-            if( texts != null && texts.Length != 0 )
+            if( text != null && text.Length != 0 )
                 return;
             Destroy(textCanvas.gameObject);
             Destroy(gameObject);

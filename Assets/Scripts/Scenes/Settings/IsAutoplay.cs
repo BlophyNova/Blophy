@@ -1,4 +1,4 @@
-using Scenes.DontDestoryOnLoad;
+using Scenes.DontDestroyOnLoad;
 using Scenes.PublicScripts;
 using TMPro;
 namespace Scenes.Settings

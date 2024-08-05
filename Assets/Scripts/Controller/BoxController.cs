@@ -116,7 +116,7 @@ namespace Controller
                 decideLineControllers[i].ThisLine = box.lines[i];//将line的源数据赋值过去
             }
             boxFineness = ValueManager.Instance.boxFineness;
-            ripples = new(AssetManager.Instance.ripple, 0, squarePosition);
+            ripples = new ObjectPoolQueue<RippleController>(AssetManager.Instance.ripple, 0, squarePosition);
             return this;//返回自身
         }
         public void PlayRipple() => StartCoroutine(Play());

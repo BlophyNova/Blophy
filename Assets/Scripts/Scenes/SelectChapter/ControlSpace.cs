@@ -1,4 +1,4 @@
-using Scenes.DontDestoryOnLoad;
+using Scenes.DontDestroyOnLoad;
 using Scenes.PublicScripts;
 using UnityEngine;
 namespace Scenes.SelectChapter

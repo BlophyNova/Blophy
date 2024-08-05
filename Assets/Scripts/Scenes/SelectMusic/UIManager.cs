@@ -1,5 +1,5 @@
 using Data.ArchiveData;
-using Scenes.DontDestoryOnLoad;
+using Scenes.DontDestroyOnLoad;
 using TMPro;
 using UtilityCode.Singleton;
 namespace Scenes.SelectMusic

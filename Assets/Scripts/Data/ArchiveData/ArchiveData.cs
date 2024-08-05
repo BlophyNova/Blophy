@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using Newtonsoft.Json;
-using Scenes.DontDestoryOnLoad;
+using Scenes.DontDestroyOnLoad;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UtilityCode.Singleton;
@@ -9,7 +9,7 @@ namespace Data.ArchiveData
 {
     public class ArchiveData : MonoBehaviourSingleton<ArchiveData>
     {
-        public Archive archive = new();
+        public Archive archive = new Archive();
         private void Start()
         {
             if (File.Exists($"{Application.persistentDataPath}/Archive.HuaWaterED"))
@@ -27,7 +27,7 @@ namespace Data.ArchiveData
                     };
                     for (int j = 0; j < archive.chapterArchives[i].musicArchive.Length; j++)
                     {
-                        archive.chapterArchives[i].musicArchive[j] = new();
+                        archive.chapterArchives[i].musicArchive[j] = new MusicArchive();
                     }
                 }
                 SaveArchive();

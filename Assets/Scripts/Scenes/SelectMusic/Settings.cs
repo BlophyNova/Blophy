@@ -1,4 +1,4 @@
-using Scenes.DontDestoryOnLoad;
+using Scenes.DontDestroyOnLoad;
 using Scenes.Loading;
 using Scenes.PublicScripts;
 namespace Scenes.SelectMusic

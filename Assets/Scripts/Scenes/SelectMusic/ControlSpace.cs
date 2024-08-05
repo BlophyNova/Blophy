@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using Scenes.PublicScripts;
 using UnityEngine;
 using UnityEngine.UI;
-using GlobalData = Scenes.DontDestoryOnLoad.GlobalData;
+using GlobalData = Scenes.DontDestroyOnLoad.GlobalData;
 namespace Scenes.SelectMusic
 {
     public class ControlSpace : PublicControlSpace
@@ -19,7 +19,7 @@ namespace Scenes.SelectMusic
             yield return rawChart;
             TextAsset rawChartTex = rawChart.asset as TextAsset;
             //GlobalData.Instance. = JsonConvert.DeserializeObject<ChartData>(chart);
-            ChartData chart = JsonConvert.DeserializeObject<ChartData>(rawChartTex.text);
+            ChartData chart = JsonConvert.DeserializeObject<ChartData>(rawChartTex!.text); // 这里不是null才能读text attr所以干脆加个断言了
             GlobalData.Instance.chartData = chart;
             UIManager.Instance.SelectMusic(chart.metaData.musicName, chart.metaData.musicWriter, chart.metaData.chartWriter, chart.metaData.artWriter);
 

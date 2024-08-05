@@ -69,7 +69,7 @@ namespace Controller
         /// </summary>
         private void InitNotesObjectPool()
         {
-            onlineNotes = new()
+            onlineNotes = new List<ObjectPoolQueue<NoteController>>
             {
                 new ObjectPoolQueue<NoteController>(AssetManager.Instance.noteControllers[(int)NoteType.Tap],0,box.sortSeed,onlineNote),
                 new ObjectPoolQueue<NoteController>(AssetManager.Instance.noteControllers[(int)NoteType.Hold],0,box.sortSeed,onlineNote),
@@ -79,7 +79,7 @@ namespace Controller
                 new ObjectPoolQueue<NoteController>(AssetManager.Instance.noteControllers[(int)NoteType.FullFlickPink],0,box.sortSeed,  onlineNote),
                 new ObjectPoolQueue<NoteController>(AssetManager.Instance.noteControllers[(int)NoteType.FullFlickBlue],0,box.sortSeed,  onlineNote)
             };
-            offlineNotes = new()
+            offlineNotes = new List<ObjectPoolQueue<NoteController>>
             {
                 new ObjectPoolQueue<NoteController>(AssetManager.Instance.noteControllers[(int)NoteType.Tap],0,box.sortSeed,offlineNote),
                 new ObjectPoolQueue<NoteController>(AssetManager.Instance.noteControllers[(int)NoteType.Hold],0,box.sortSeed, offlineNote),

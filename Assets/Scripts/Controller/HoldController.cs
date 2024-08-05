@@ -73,14 +73,14 @@ namespace Controller
             switch (isJudged)
             {
                 case true://如果isJudge为True，说明是抬起来再按回去的，直接播放打击特效
-                    PlayEffectWithoutAddScore(NoteJudge.Perfect, ValueManager.Instance.perfectJudge, true);
+                    PlayEffectWithoutAddScore(NoteJudge.Perfect, ValueManager.Instance.perfectJudge);
                     break;
                 case false://如果没有判定过并且触摸阶段是开始触摸
                     isJudged = true;//设置状态为判定过了
                     checkTime = Time.time;//设置时间
                     CompletedJudge();
                     JudgeLevel(out noteJudge, out isEarly);//获得到判定等级
-                    PlayEffectWithoutAddScore(noteJudge, GetColorWithNoteJudge(noteJudge), isEarly);
+                    PlayEffectWithoutAddScore(noteJudge, GetColorWithNoteJudge(noteJudge));
                     break;
             }
         }
@@ -126,7 +126,7 @@ namespace Controller
                     //checkTime = Time.time;
                     //没有Miss
                     //打击特效
-                    PlayEffectWithoutAddScore(NoteJudge.Perfect, ValueManager.Instance.perfectJudge, true);
+                    PlayEffectWithoutAddScore(NoteJudge.Perfect, ValueManager.Instance.perfectJudge);
                     reJudge = false;//重判一次完成后就设置状态
                 }
             }

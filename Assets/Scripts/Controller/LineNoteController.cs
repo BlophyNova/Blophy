@@ -12,12 +12,12 @@ namespace Controller
 
         public DecideLineController decideLineController;//判定线控制
 
-        public List<NoteController> ariseOnlineNotes = new();//判定线上方已经出现的音符列表,
+        public List<NoteController> ariseOnlineNotes = new List<NoteController>();//判定线上方已经出现的音符列表,
         [FormerlySerializedAs("endTime_ariseOnlineNotes")]
-        public List<NoteController> endTimeAriseOnlineNotes = new();//判定线上方已经出现的音符列表,按照EndTime排序
-        public List<NoteController> ariseOfflineNotes = new();//判定线下方已经出现的音符列表,
+        public List<NoteController> endTimeAriseOnlineNotes = new List<NoteController>();//判定线上方已经出现的音符列表,按照EndTime排序
+        public List<NoteController> ariseOfflineNotes = new List<NoteController>();//判定线下方已经出现的音符列表,
         [FormerlySerializedAs("endTime_ariseOfflineNotes")]
-        public List<NoteController> endTimeAriseOfflineNotes = new();//判定线下方已经出现的音符列表,按照EndTime排序
+        public List<NoteController> endTimeAriseOfflineNotes = new List<NoteController>();//判定线下方已经出现的音符列表,按照EndTime排序
 
         public int lastOnlineIndex;//上次召唤到Note[]列表的什么位置了，从上次的位置继续
         public int lastOfflineIndex;//上次召唤到Note[]列表的什么位置了，从上次的位置继续

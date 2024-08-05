@@ -5,7 +5,7 @@ using Data.Enumerate;
 using Manager;
 using UnityEngine;
 using UnityEngine.Serialization;
-using GlobalData = Scenes.DontDestoryOnLoad.GlobalData;
+using GlobalData = Scenes.DontDestroyOnLoad.GlobalData;
 namespace Controller
 {
     public class NoteController : MonoBehaviour
@@ -144,19 +144,12 @@ namespace Controller
         protected virtual void PlayRipple() => decideLineController.box.PlayRipple();
         protected virtual void PlayEffect(NoteJudge noteJudge, Color hitJudgeEffectColor, bool isEarly)
         {
-            PlayEffectWithoutAddScore(noteJudge, hitJudgeEffectColor, isEarly);
+            PlayEffectWithoutAddScore(noteJudge, hitJudgeEffectColor);
             GlobalData.Instance.score.AddScore(thisNote.noteType, noteJudge, isEarly);//加分
         }
-        protected virtual void PlayEffectWithoutAddScore(NoteJudge noteJudge, Color hitJudgeEffectColor, bool isEarly)
+        protected void PlayEffectWithoutAddScore(NoteJudge noteJudge, Color hitJudgeEffectColor)
         {
-            switch (noteJudge)//判定等级枚举
-            {
-                case NoteJudge.Miss://如果是Miss则不播放打击特效
-                    break;
-                default:
-                    PlayEffectWithoutMiss(hitJudgeEffectColor);
-                    break;
-            }
+            if (noteJudge != NoteJudge.Miss) { PlayEffectWithoutMiss(hitJudgeEffectColor); }
         }
 
         private void PlayEffectWithoutMiss(Color hitJudgeEffectColor)
@@ -178,10 +171,12 @@ namespace Controller
         /// <param name="hitJudgeEffectColor">判定等级对应的颜色</param>
         protected virtual void PlayHitEffectWithJudgeLevel(Color hitJudgeEffectColor)
         {
-            if (isOnlineNote)
-                HitEffectManager.Instance.PlayHitEffect(transform.TransformPoint(Vector3.down * (decideLineController.onlineNote.transform.localPosition.y + transform.localPosition.y)), transform.rotation, hitJudgeEffectColor); //播放打击特效
-            else
-                HitEffectManager.Instance.PlayHitEffect(transform.TransformPoint(Vector3.down * (decideLineController.onlineNote.transform.localPosition.y - transform.localPosition.y)), transform.rotation, hitJudgeEffectColor); //播放打击特效
+            HitEffectManager.Instance.PlayHitEffect(isOnlineNote 
+                ? // isOnlineNote == true
+                transform.TransformPoint(Vector3.down * (decideLineController.onlineNote.transform.localPosition.y + transform.localPosition.y)) 
+                :  // isOnlineNote == false
+                transform.TransformPoint(Vector3.down * (decideLineController.onlineNote.transform.localPosition.y - transform.localPosition.y)), transform.rotation, hitJudgeEffectColor);//播放打击特效
+            //播放打击特效
         }
         /// <summary>
         /// 根据音符判定等级获得到颜色
@@ -194,6 +189,7 @@ namespace Controller
             {
                 NoteJudge.Perfect => ValueManager.Instance.perfectJudge,//如果是P、G、B就拿到对应的颜色
                 NoteJudge.Early => ValueManager.Instance.goodJudge,      //如果是P、G、B就拿到对应的颜色
+                NoteJudge.Late => ValueManager.Instance.goodJudge,       //我他妈知道为什么白色判定了
                 NoteJudge.Bad => ValueManager.Instance.badJudge,        //如果是P、G、B就拿到对应的颜色
                 _ => ValueManager.Instance.otherJudge,//其他则Other，这个颜色的出现代表有bug
             };
@@ -222,6 +218,7 @@ namespace Controller
                 currentTime > thisNote.hitTime)//如果在打击时间+good到打击时间之间
             {
                 noteJudge = NoteJudge.Late;//Good判定
+                isEarly = false;
             }
             else if (currentTime < thisNote.hitTime &&//如果在打击时间-bad到打击时间之间
                 currentTime > thisNote.hitTime - JudgeManager.Bad)

@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UtilityCode.Singleton;
 using AD = Data.ArchiveData.ArchiveData;
-using GD = Scenes.DontDestoryOnLoad.GlobalData;
+using GD = Scenes.DontDestroyOnLoad.GlobalData;
 namespace Scenes.End
 {
     public class UIManager : MonoBehaviourSingleton<UIManager>

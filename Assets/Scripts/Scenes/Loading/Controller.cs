@@ -34,7 +34,6 @@ namespace Scenes.Loading
             int index = rnd.Next(0, tips.Length);
             string tipText = tips[index];
             tip.text = "|Tip: " + tipText;
-            tip.gameObject.SetActive(true);
             while (elapsedTime < animationDuration)
             {
                 color.a = Mathf.Clamp01(elapsedTime / animationDuration);

@@ -36,7 +36,7 @@ namespace UtilityCode.GameUtility
         /// <returns>返回一个处理好的AnimationCurve</returns>
         public static List<Keyframe> CalculatedSpeedCurve(Event[] speeds)
         {
-            List<Keyframe> keys = new();//声明一个Keys列表
+            List<Keyframe> keys = new List<Keyframe>();//声明一个Keys列表
             Vector2 keySeedSpeed = Vector2.zero;//Key种子，用来记录上一次循环结束时的Time和Value信息
             foreach (var item in speeds)
             {
@@ -67,9 +67,10 @@ namespace UtilityCode.GameUtility
         public static AnimationCurve CalculatedOffsetCurve(AnimationCurve canvasSpeed, List<Keyframe> keyframes)
         {
             /*速度图的value等于位移图的斜率*/
-            List<Keyframe> resultKeyframes = new()//声明一个列表，第一个点默认从0，0开始
+            List<Keyframe> resultKeyframes = new List<Keyframe>()//声明一个列表，第一个点默认从0，0开始
             {
-                new() {weightedMode=WeightedMode.Both, time = 0, value = 0, outWeight = keyframes[0].outWeight, outTangent = keyframes[0].value }
+                new Keyframe
+                    {weightedMode=WeightedMode.Both, time = 0, value = 0, outWeight = keyframes[0].outWeight, outTangent = keyframes[0].value }
             };
 
             //下面是第一层for循环，，因为上边自动添加了第一个点，所以这里直接跳过第一个点，避免了数组越界的bug
@@ -78,7 +79,7 @@ namespace UtilityCode.GameUtility
                 float result = 0;//计算这个点和上一个点的面积
                 result = CalculateArea(canvasSpeed, keyframes, i, result);
 
-                Keyframe keyframe = new()//声明一个key
+                Keyframe keyframe = new Keyframe()//声明一个key
                 {
                     weightedMode = WeightedMode.Both,//key的模式为Both
                     value = result + resultKeyframes[^1].value,//Key的Value直接等于面积结果加上次计算点的value
@@ -87,7 +88,8 @@ namespace UtilityCode.GameUtility
                 keyframe = CalculateKeyframeProperty(keyframes, keyframe);
                 AddKey2KeyList(resultKeyframes, keyframe, true);//使用严格搜索，如果这个时间有key就踢掉之前的key重加一次
             }
-            return new() { keys = resultKeyframes.ToArray(), preWrapMode = WrapMode.ClampForever, postWrapMode = WrapMode.ClampForever };//把处理好的Key放到AnimationCurve里返回出去
+            return new AnimationCurve
+                { keys = resultKeyframes.ToArray(), preWrapMode = WrapMode.ClampForever, postWrapMode = WrapMode.ClampForever };//把处理好的Key放到AnimationCurve里返回出去
         }
 
         private static Keyframe CalculateKeyframeProperty(List<Keyframe> keyframes, Keyframe keyframe)

@@ -5,7 +5,7 @@ using Manager;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UtilityCode.Singleton;
-namespace Scenes.DontDestoryOnLoad
+namespace Scenes.DontDestroyOnLoad
 {
     public class GlobalData : MonoBehaviourSingleton<GlobalData>
     {

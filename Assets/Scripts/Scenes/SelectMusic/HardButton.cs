@@ -1,4 +1,4 @@
-using Scenes.DontDestoryOnLoad;
+using Scenes.DontDestroyOnLoad;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,7 +24,7 @@ namespace Scenes.SelectMusic
                 switch (isSelected)
                 {
                     case true:
-                        ColorBlock selectedColor = new();
+                        ColorBlock selectedColor = new ColorBlock();
                         selectedColor.normalColor =
                             selectedColor.highlightedColor =
                                 selectedColor.pressedColor =
@@ -42,7 +42,7 @@ namespace Scenes.SelectMusic
                         GlobalData.Instance.currentHard = hardLevel;
                         break;
                     case false:
-                        ColorBlock unselectColor = new();
+                        ColorBlock unselectColor = new ColorBlock();
                         unselectColor.normalColor =
                             unselectColor.highlightedColor =
                                 unselectColor.pressedColor =

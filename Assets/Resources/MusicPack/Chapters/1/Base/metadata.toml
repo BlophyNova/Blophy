@@ -28,3 +28,22 @@ flick = 0
 fullFlick = 4
 point = 4
 
+[Chart.Normal]
+author = [""]
+source = "Charts/Normal/base.json"
+
+[Chart.Normal.Illustration]
+author = [""]
+source = "Backgrounds/bg.png"
+
+[Chart.Normal.Statistics]
+
+[Chart.Hard]
+author = [""]
+source = "Charts/Hard/base.json"
+
+[Chart.Hard.Illustration]
+author = [""]
+source = "Backgrounds/bg.png"
+
+[Chart.Hard.Statistics]

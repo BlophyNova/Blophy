@@ -1,6 +1,6 @@
 using System.Collections;
 using Manager;
-using Scenes.DontDestoryOnLoad;
+using Scenes.DontDestroyOnLoad;
 using Scenes.PublicScripts;
 using TMPro;
 using UnityEngine;
