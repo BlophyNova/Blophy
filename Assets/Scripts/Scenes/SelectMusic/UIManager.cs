@@ -19,7 +19,7 @@ namespace Scenes.SelectMusic
             this.chartWriter.text = chartWriter;
             this.artWriter.text = artWriter;
             //最高分，从存档系统获取
-            bestScore.text = $"{ArchiveData.Instance.archive.chapterArchives[GlobalData.Instance.currentChapterIndex].musicArchive[GlobalData.Instance.currentMusicIndex][GlobalData.Instance.currentHard]:D7}";
+            bestScore.text = $"{ArchiveData.Instance.archive.chapterArchives[GlobalData.Instance.currentChapter].musicArchive[GlobalData.Instance.currentMusicIndex][GlobalData.Instance.currentHard]:D7}";
         }
     }
 }

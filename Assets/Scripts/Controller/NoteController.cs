@@ -212,12 +212,12 @@ namespace Controller
             else if (currentTime < thisNote.hitTime &&//如果在打击时间-good到打击时间之间
                 currentTime > thisNote.hitTime - JudgeManager.Good)
             {
-                noteJudge = NoteJudge.Early;//Good判定，Early默认是True，所以这里不理会isEarly
+                noteJudge = NoteJudge.Early;//Good(Early)判定
             }
             else if (currentTime < thisNote.hitTime + JudgeManager.Good &&
                 currentTime > thisNote.hitTime)//如果在打击时间+good到打击时间之间
             {
-                noteJudge = NoteJudge.Late;//Good判定
+                noteJudge = NoteJudge.Late;//Good(Late)判定
                 isEarly = false;
             }
             else if (currentTime < thisNote.hitTime &&//如果在打击时间-bad到打击时间之间

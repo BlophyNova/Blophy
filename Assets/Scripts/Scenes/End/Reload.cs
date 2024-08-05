@@ -1,4 +1,3 @@
-using Scenes.Loading;
 using Scenes.PublicScripts;
 namespace Scenes.End
 {

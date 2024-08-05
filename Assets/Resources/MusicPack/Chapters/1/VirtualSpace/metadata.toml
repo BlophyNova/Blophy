@@ -1,0 +1,49 @@
+﻿[Metadata]
+name = "Virtual Space"
+description = ""
+cover = "Backgrounds/bg.png"
+
+[Metadata.Music]
+source = "Music/Base.ogg"
+author = ["SJQ音福"]
+bpm = 204.167
+offset = 0.0
+length = 138.0
+
+[Chart]
+
+[Chart.Easy]
+author = [""]
+source = "Charts/Easy/base.json"
+
+[Chart.Easy.Illustration]
+author = [""]
+source = "Backgrounds/bg.png"
+
+[Chart.Easy.Statistics]
+tap = 189
+hold = 61
+drag = 396
+flick = 0
+fullFlick = 2
+point = 0
+
+[Chart.Normal]
+author = [""]
+source = "Charts/Normal/base.json"
+
+[Chart.Normal.Illustration]
+author = [""]
+source = "Backgrounds/bg.png"
+
+[Chart.Normal.Statistics]
+
+[Chart.Hard]
+author = [""]
+source = "Charts/Hard/base.json"
+
+[Chart.Hard.Illustration]
+author = [""]
+source = "Backgrounds/bg.png"
+
+[Chart.Hard.Statistics]

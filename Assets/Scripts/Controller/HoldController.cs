@@ -114,7 +114,7 @@ namespace Controller
             //这里放“现在是通过遮罩做的，我想的是，未来可不可以去掉遮罩，做成上下自动检测拥有停留时间”中的内容
             //***************************************************************************************
 
-            if (checkTime > 0 && isJudged)//chechTime大于0说明手指有判定了，并且已经判定过了
+            if (checkTime > 0 && isJudged)//checkTime大于0说明手指有判定了，并且已经判定过了
             {
                 if (Time.time - checkTime > ValueManager.Instance.holdLeaveScreenTime && !isMissed)//如果当前时间距离手指在我这里判定的最后一帧已经超过预先设置的时间了并且没有Miss
                 {

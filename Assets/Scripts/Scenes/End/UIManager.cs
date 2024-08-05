@@ -32,18 +32,13 @@ namespace Scenes.End
             {
                 apfc.text = "Autoplay";
             }
-            else if (GD.Instance.score.Bad == 0 && GD.Instance.score.Miss == 0 && GD.Instance.score.Good == 0)
-            {
-                apfc.text = "AllPerfect";
-            }
-            else if (GD.Instance.score.Bad == 0 && GD.Instance.score.Miss == 0)
-            {
-                apfc.text = "FullCombo";
-            }
             else
-            {
-                apfc.text = "";
-            }
+                apfc.text = GD.Instance.score.Bad switch
+                {
+                    0 when GD.Instance.score.Miss == 0 && GD.Instance.score.Good == 0 => "AllPerfect",
+                    0 when GD.Instance.score.Miss == 0 => "FullCombo",
+                    _ => ""
+                };
             score.text = $"{(int)GD.Instance.score.Score:D7}";
             perfect.text = $"{GD.Instance.score.Perfect}";
             good.text = $"{GD.Instance.score.Good}";
@@ -53,13 +48,12 @@ namespace Scenes.End
             accuracy.text = $"Accuracy: {GD.Instance.score.Accuracy * 100f:F2}%";
             musicName.text = $"{GD.Instance.chartData.metaData.musicName}";
             level.text = $"{GD.Instance.chartData.metaData.chartLevel}";
-            if (!GD.Instance.isAutoplay)
-            {
-                int currentArchiveMusicHardScore = AD.Instance.archive.chapterArchives[GD.Instance.currentChapterIndex].musicArchive[GD.Instance.currentMusicIndex][GD.Instance.currentHard];
-                int newMusicHardScore = (int)GD.Instance.score.Score;
-                AD.Instance.archive.chapterArchives[GD.Instance.currentChapterIndex].musicArchive[GD.Instance.currentMusicIndex][GD.Instance.currentHard] = newMusicHardScore > currentArchiveMusicHardScore ? newMusicHardScore : currentArchiveMusicHardScore;
-                AD.Instance.SaveArchive();
-            }
+            if( GD.Instance.isAutoplay )
+                return;
+            int currentArchiveMusicHardScore = AD.Instance.archive.chapterArchives[GD.Instance.currentChapter].musicArchive[GD.Instance.currentMusicIndex][GD.Instance.currentHard];
+            int newMusicHardScore = (int)GD.Instance.score.Score;
+            AD.Instance.archive.chapterArchives[GD.Instance.currentChapter].musicArchive[GD.Instance.currentMusicIndex][GD.Instance.currentHard] = newMusicHardScore > currentArchiveMusicHardScore ? newMusicHardScore : currentArchiveMusicHardScore;
+            AD.Instance.SaveArchive();
         }
     }
 }

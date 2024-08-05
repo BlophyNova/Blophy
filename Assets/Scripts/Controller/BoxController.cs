@@ -177,10 +177,10 @@ namespace Controller
             if (events.Length <= 0 || currentTime < events[0].startTime) return defaultValue;
             int eventIndex = Algorithm.BinarySearch(events, IsCurrentEvent, true, ref currentTime);//找到当前时间下，应该是哪个事件
 
-            if (currentTime > events[eventIndex].endTime)
-                if (events[eventIndex].endValue == 0) return -.0001f;
-                else return events[eventIndex].endValue;
-            return GameUtility.GetValueWithEvent(events[eventIndex], currentTime);//拿到事件后根据时间Get到当前值
+            if( !(currentTime > events[eventIndex].endTime) )
+                return GameUtility.GetValueWithEvent(events[eventIndex], currentTime);//拿到事件后根据时间Get到当前值
+            if (events[eventIndex].endValue == 0) return -.0001f;
+            else return events[eventIndex].endValue;
             static bool IsCurrentEvent(Event m, ref float currentTime) => currentTime >= m.startTime;
         }
         private void UpdateCenterAndRotation()

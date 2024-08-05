@@ -3,7 +3,6 @@ using System.IO;
 using Newtonsoft.Json;
 using Scenes.DontDestroyOnLoad;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UtilityCode.Singleton;
 namespace Data.ArchiveData
 {
@@ -23,7 +22,7 @@ namespace Data.ArchiveData
                 {
                     archive.chapterArchives[i] = new ChapterArchive
                     {
-                        musicArchive = new MusicArchive[GlobalData.Instance.chapters[GlobalData.Instance.currentChapterIndex].musicPath.Length]
+                        musicArchive = new MusicArchive[GlobalData.Instance.chapters[GlobalData.Instance.currentChapter].musicPath.Length]
                     };
                     for (int j = 0; j < archive.chapterArchives[i].musicArchive.Length; j++)
                     {
@@ -51,19 +50,16 @@ namespace Data.ArchiveData
     [Serializable]
     public class MusicArchive
     {
-        [FormerlySerializedAs("score_Green")]
-        public int scoreGreen;
-        [FormerlySerializedAs("score_Yellow")]
-        public int scoreYellow;
-        [FormerlySerializedAs("score_Red")]
-        public int scoreRed;
+        public int scoreEasy;
+        public int scoreNormal;
+        public int scoreHard;
         public int this[string hard]
         {
             get => hard switch
             {
-                "Green" => scoreGreen,
-                "Yellow" => scoreYellow,
-                "Red" => scoreRed,
+                "Green" => scoreEasy,
+                "Yellow" => scoreNormal,
+                "Red" => scoreHard,
                 _ => throw new Exception("如果你看到这条消息,请截图并在群中@MojaveHao/Niubility748/HuaWaterED中的任意一位反馈\n" +
                     "存档系统读取方法出错,难度未找到")
             };
@@ -72,13 +68,13 @@ namespace Data.ArchiveData
                 switch (hard)
                 {
                     case "Green":
-                        scoreGreen = value;
+                        scoreEasy = value;
                         break;
                     case "Yellow":
-                        scoreYellow = value;
+                        scoreNormal = value;
                         break;
                     case "Red":
-                        scoreRed = value;
+                        scoreHard = value;
                         break;
                 }
             }
