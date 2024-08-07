@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+      - dev
+      - 'refactor-chart'
+    
   workflow_dispatch: # 手动触发
 
 jobs:
