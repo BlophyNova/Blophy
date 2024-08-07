@@ -1,0 +1,43 @@
+name: Build Blophy on Android and iOS
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - 'refactor-chart'
+    
+  workflow_dispatch: # 手动触发
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build iOS
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          unityVersion: 2021.3.38f1
+          targetPlatform: iOS
+          projectPath: .
+          buildName: Blophy
+          buildsPath: build/ios
+
+      - name: Upload Android Build
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-android
+          path: build/android
+
+      - name: Upload iOS Build
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-ios
+          path: build/ios

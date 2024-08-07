@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3a2c804a-bc27-483e-a4db-f48c03536525" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/App.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Like/Charts/Normal.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/VirtualSpace/Charts/Easy.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/VirtualSpace/Charts/Hard.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/VirtualSpace/Charts/Normal.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/ChartFile.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/Charts/Easy.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/ChartFile/Green.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/Charts/Hard.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/ChartFile/Red.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/Charts/Normal.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Like/ChartFile/Green.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Like/Charts/Hard.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Like/ChartFile/Red.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Like/ChartFile/Yellow.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/VirtualSpace/ChartFile/Red.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/VirtualSpace/ChartFile/Yellow.meta" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1d3dacd00ce441dc8c61d528a2193088158400/58/04e8d53e/Vector2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/583df70190f94511bd46f12943531dbc15b000/26/f5942d48/LineRenderer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/583df70190f94511bd46f12943531dbc15b000/7c/8ce96b47/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c8abf3742e6748e7b9189dcdd9de2f8afe00/cd/091fa0d0/AudioClip.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Scenes/Result/Continue.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="SWEA" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2jPBlivXVyd172PKvLq1MuKIOpj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;refactor-chart&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24847251&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="附加到 Unity 编辑器.附加到 Unity 编辑器">
+    <configuration name="启动 Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="K:\UnityEditor\2021.3.38f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath K:\Desktop\Blophy -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="K:\Desktop\Blophy" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="单元测试(批处理模式)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="K:\UnityEditor\2021.3.38f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath K:\Desktop\Blophy -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="K:\Desktop\Blophy" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="附加到 Unity 编辑器" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="附加到 Unity 编辑器并运行" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="3a2c804a-bc27-483e-a4db-f48c03536525" name="更改" comment="" />
+      <created>1721279015969</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721279015969</updated>
+      <workItem from="1721279015971" duration="3598000" />
+      <workItem from="1721282971722" duration="2399000" />
+      <workItem from="1721285504165" duration="4169000" />
+      <workItem from="1721353653576" duration="1283000" />
+      <workItem from="1721883082069" duration="2588000" />
+      <workItem from="1721901662382" duration="4129000" />
+      <workItem from="1722342545036" duration="869000" />
+      <workItem from="1722605868719" duration="23526000" />
+      <workItem from="1722838535987" duration="216000" />
+      <workItem from="1722838843721" duration="9584000" />
+      <workItem from="1722927269087" duration="3930000" />
+    </task>
+    <task id="LOCAL-00001" summary="修改&amp;重新格式化 如果不能运行仍然请get reset&amp;cherry pick">
+      <option name="closed" value="true" />
+      <created>1721286602264</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721286602280</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: 增加了tips功能">
+      <option name="closed" value="true" />
+      <created>1722611585929</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722611585929</updated>
+    </task>
+    <task id="LOCAL-00003" summary="大概">
+      <option name="closed" value="true" />
+      <created>1722669007252</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722669007252</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: 新的结算界面(未完成)&#10;&#10;refactor: 继续重构谱面文件夹存储方式(未完成)">
+      <option name="closed" value="true" />
+      <created>1722854490509</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722854490509</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="修改&amp;重新格式化 如果不能运行仍然请get reset&amp;cherry pick" />
+    <MESSAGE value="feat: 增加了tips功能" />
+    <MESSAGE value="大概" />
+    <MESSAGE value="feat: 新的结算界面(未完成)&#10;&#10;refactor: 继续重构谱面文件夹存储方式(未完成)" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 新的结算界面(未完成)&#10;&#10;refactor: 继续重构谱面文件夹存储方式(未完成)" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
