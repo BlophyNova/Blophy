@@ -37,6 +37,12 @@ author = [""]
 source = "Backgrounds/bg.png"
 
 [Chart.Normal.Statistics]
+tap = 59
+hold = 7
+drag = 69
+flick = 0
+fullFlick = 4
+point = 4
 
 [Chart.Hard]
 author = [""]
@@ -47,3 +53,9 @@ author = [""]
 source = "Backgrounds/bg.png"
 
 [Chart.Hard.Statistics]
+tap = 59
+hold = 7
+drag = 69
+flick = 0
+fullFlick = 4
+point = 4

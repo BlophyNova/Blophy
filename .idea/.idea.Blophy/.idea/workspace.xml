@@ -5,24 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a2c804a-bc27-483e-a4db-f48c03536525" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/App.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Like/Charts/Normal.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/VirtualSpace/Charts/Easy.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/VirtualSpace/Charts/Hard.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/VirtualSpace/Charts/Normal.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/ChartFile.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/Charts/Easy.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/ChartFile/Green.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/Charts/Hard.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/ChartFile/Red.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/FruitySpace/Charts/Normal.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Like/ChartFile/Green.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Like/Charts/Hard.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Like/ChartFile/Red.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Like/ChartFile/Yellow.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/VirtualSpace/ChartFile/Red.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/VirtualSpace/ChartFile/Yellow.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Chapters.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Chapters/0.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Chapters/0/1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Chapters/0/1.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Chapters/1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Characters.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Characters/Naye.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Characters/Naye.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Characters/Oues.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Characters/Oues.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Characters/Verno.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Characters/Verno.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Collections.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Collections/C101.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Stories/Mainline/Collections/C101.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UtilityCode/FileOperating.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UtilityCode/FileOperating/ReadChapterMetadata.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UtilityCode/FileOperating/ReadChapterMetadata.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UtilityCode/FileOperating/Types.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UtilityCode/FileOperating/Types/ChapterMetadata.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UtilityCode/FileOperating/Types/ChapterMetadata.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blophy/.idea/shelf/_2024_8_3_12_50____.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blophy/.idea/shelf/在进行更新之前于_2024_8_3_12_50_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blophy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blophy/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Base/metadata.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MusicPack/Chapters/1/Base/metadata.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scenes/SelectMusic/ControlSpace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scenes/SelectMusic/ControlSpace.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JSON File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -62,7 +86,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderNuGetOptionsPageId&quot;,
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.24847251&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -124,6 +148,8 @@
       <workItem from="1722838535987" duration="216000" />
       <workItem from="1722838843721" duration="9584000" />
       <workItem from="1722927269087" duration="3930000" />
+      <workItem from="1723025807200" duration="835000" />
+      <workItem from="1723869847364" duration="3084000" />
     </task>
     <task id="LOCAL-00001" summary="修改&amp;重新格式化 如果不能运行仍然请get reset&amp;cherry pick">
       <option name="closed" value="true" />
