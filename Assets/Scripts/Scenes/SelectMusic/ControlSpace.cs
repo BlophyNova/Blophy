@@ -5,6 +5,9 @@ using Scenes.PublicScripts;
 using UnityEngine;
 using UnityEngine.UI;
 using GlobalData = Scenes.DontDestroyOnLoad.GlobalData;
+using UtilityCode.FileOperating.Types;
+using Tomlyn;
+
 namespace Scenes.SelectMusic
 {
     public class ControlSpace : PublicControlSpace
@@ -15,6 +18,7 @@ namespace Scenes.SelectMusic
         public Image musicPrefab;
         private static new IEnumerator Send()
         {
+            /*
             ResourceRequest rawChart = Resources.LoadAsync<TextAsset>($"MusicPack/Chapters/{GlobalData.Instance.currentChapter}/{GlobalData.Instance.currentMusic}/Charts/{GlobalData.Instance.currentHard}/Chart");
             yield return rawChart;
             TextAsset rawChartTex = rawChart.asset as TextAsset;
@@ -34,7 +38,11 @@ namespace Scenes.SelectMusic
             ResourceRequest clip = Resources.LoadAsync<AudioClip>($"MusicPack/Chapters/{GlobalData.Instance.currentChapter}/{GlobalData.Instance.currentMusic}/Music/Music");
             yield return clip;
             GlobalData.Instance.clip = clip.asset as AudioClip;
-
+            */
+            ResourceRequest metadataAsset = Resources.LoadAsync<TextAsset>($"MusicPack/Chapters/{GlobalData.Instance.currentChapter}/metadata.toml");
+            TextAsset metadata = metadataAsset.asset as TextAsset;
+            RootModel model = Toml.ToModel<RootModel>(metadata!.text);
+            
 
         }
         private void UploadSyncMusic()
