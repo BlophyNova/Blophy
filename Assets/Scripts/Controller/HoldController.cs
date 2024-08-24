@@ -94,7 +94,7 @@ namespace Controller
             base.JudgeLevel(out noteJudge, out isEarly);
             noteJudge = noteJudge switch
             {
-                // NoteJudge.Bad => NoteJudge.Early,//过滤bad为Good判定
+                NoteJudge.Bad => NoteJudge.Early,//过滤bad为Good判定
                 _ => noteJudge
             };
         }
