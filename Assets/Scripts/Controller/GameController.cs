@@ -22,13 +22,5 @@ namespace Controller
             StateManager.Instance.IsStart = true;//设置状态IsStart为True
 
         }
-        private void Update()
-        {
-            if( !(GlobalData.Instance.chartData.globalData.musicLength - ProgressManager.Instance.CurrentTime <= .1f) || isLoading )
-                return;
-            isLoading = true;
-            Scenes.Loading.Controller.Instance.SetLoadSceneByName("End").StartLoad();
-
-        }
     }
 }

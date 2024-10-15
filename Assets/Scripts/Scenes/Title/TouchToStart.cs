@@ -7,10 +7,7 @@ namespace Scenes.Title
     {
         private void Start()
         {
-            SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive).completed += a =>
-                Loading.Controller.Instance.SetLoadSceneByName("SelectChapter");
-
-            thisButton.onClick.AddListener(() => Loading.Controller.Instance.StartLoad());
+            thisButton.onClick.AddListener(() => SceneManager.LoadSceneAsync("GamePlay",LoadSceneMode.Single));
         }
     }
 }
