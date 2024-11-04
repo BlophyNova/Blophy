@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Data.ChartData;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,7 +19,13 @@ public class OK : MonoBehaviour
     public WebSocket ws;
     private void Start()
     {
-        ok.onClick.AddListener(() =>StartCoroutine(ConnectEdit()));
+        //ok.onClick.AddListener(() =>StartCoroutine(ConnectEdit()));
+        ok.onClick.AddListener(() =>
+        {
+            Transform trans = new GameObject().GetComponent<Transform>();
+            trans.AddComponent<ConnectionManager>();
+            
+        });
     }
 
     IEnumerator ConnectEdit()

@@ -9,12 +9,6 @@ namespace Scenes.DontDestoryOnLoad
 {
     public class GlobalData : MonoBehaviourSingleton<GlobalData>
     {
-        public Chapter[] chapters;
-        public string currentChapter;
-        public int currentChapterIndex;
-        public string currentMusic;
-        public int currentMusicIndex;
-        public string currentHard;
         public ChartData chartData;
         public AudioClip clip;
         [FormerlySerializedAs("currentCP")]
