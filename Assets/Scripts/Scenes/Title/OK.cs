@@ -7,6 +7,7 @@ using Data.ChartData;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using WebSocketSharp;
@@ -16,58 +17,14 @@ public class OK : MonoBehaviour
     public TMP_InputField ipAddress;
     public Button ok;
     public TMP_Text connectionInfo;
-    public WebSocket ws;
     private void Start()
     {
-        //ok.onClick.AddListener(() =>StartCoroutine(ConnectEdit()));
-        ok.onClick.AddListener(() =>
+        IThenStartup startup = (IThenStartup)new GameObject().AddComponent(Type.GetType("HuaWaterED.ThenStartup"));
+        if (startup == null)
         {
-            Transform trans = new GameObject().GetComponent<Transform>();
-            trans.AddComponent<ConnectionManager>();
-            
-        });
-    }
-
-    IEnumerator ConnectEdit()
-    {
-        connectionInfo.text = "正在寻找制谱器中";
-        yield return new WaitForEndOfFrame();
-        ws = new($"ws://{ipAddress.text}:1286/");
-        
-        ws.OnOpen += (sender, args) =>StartCoroutine(Jump2Gameplay());
-        //ws.OnError += (sender, args) =>StartCoroutine(ConnectFailed());
-        ws.Connect();
-    }
-
-    IEnumerator ConnectFailed()
-    {
-        connectionInfo.text = "阿巴阿巴，连不上制谱器呀";
-        yield return new WaitForEndOfFrame();
-    }
-    IEnumerator Jump2Gameplay()
-    {
-        connectionInfo.text = "连接成功！即将跳转！";
-        StartCoroutine(PingPong());
-        yield return new WaitForSeconds(3);
-        //SceneManager.LoadScene("GamePlay", LoadSceneMode.Single);
-    }
-
-    IEnumerator PingPong()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(5);
-            if (!ws.Ping())
-            {
-                ws.Close();
-            }
-            
-            
+            Debug.Log("未找到网络模块，此版本无互联网访问能力");
+            return;
         }
-    }
-
-    private void OnApplicationQuit()
-    {
-        ws.Close();
+        startup.ClientInit(ipAddress.text);
     }
 }
