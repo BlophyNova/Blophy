@@ -25,6 +25,6 @@ public class OK : MonoBehaviour
             Debug.Log("未找到网络模块，此版本无互联网访问能力");
             return;
         }
-        startup.ClientInit(ipAddress.text);
+        ok.onClick.AddListener(() => startup.ClientInit(ipAddress.text));
     }
 }
