@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Data.ChartData;
 using Data.Enumerate;
 using Manager;
@@ -22,13 +24,25 @@ namespace Scenes.DontDestoryOnLoad
         public int ScreenHeight => Camera.main.pixelHeight;
         [FormerlySerializedAs("WhereToEnterSettings")]
         public string whereToEnterSettings;
+
+
+        public List<Action> loopCallBacks = new();
         protected override void OnAwake()
         {
             DontDestroyOnLoad(gameObject);
         }
-        private void Start()
+        private IEnumerator Start()
         {
             Application.targetFrameRate = 9999;
+
+            while (true)
+            {
+                yield return new WaitForSeconds(.1f);
+                if (loopCallBacks.Count <= 0) continue;
+                Action action = loopCallBacks[0];
+                loopCallBacks.RemoveAt(0);
+                action();
+            }
         }
     }
     [Serializable]
@@ -257,7 +271,7 @@ namespace Scenes.DontDestoryOnLoad
                     Combo = 0;
                     break;
                 default:
-                    Debug.LogError("如果你看到这条消息,请截图并在群里@MojaveHao/Niubility748/HuaWaterED进行反馈\n" +
+                    Debug.LogError("如果你看到这条消息,请截图并在群里找HuaWaterED进行反馈\n" +
                         "加分出错:Miss但未找到音符类型");
                     break;
             }
@@ -297,7 +311,7 @@ namespace Scenes.DontDestoryOnLoad
                     }
                     break;
                 default:
-                    Debug.LogError("如果你看到这条消息,请截图并在群里@MojaveHao/Niubility748/HuaWaterED进行反馈\n" +
+                    Debug.LogError("如果你看到这条消息,请截图并在群里找HuaWaterED进行反馈\n" +
                         "加分出错:Bad但未找到音符类型");
                     break;
             }
@@ -351,7 +365,7 @@ namespace Scenes.DontDestoryOnLoad
                     Combo++;
                     break;
                 default:
-                    Debug.LogError("如果你看到这条消息,请截图并在群里@MojaveHao/Niubility748/HuaWaterED进行反馈\n" +
+                    Debug.LogError("如果你看到这条消息,请截图并在群里找HuaWaterED进行反馈\n" +
                         "加分出错:Good但未找到音符类型");
                     break;
             }
@@ -393,16 +407,10 @@ namespace Scenes.DontDestoryOnLoad
                     Combo++;
                     break;
                 default:
-                    Debug.LogError("如果你看到这条消息,请截图并在群里@MojaveHao/Niubility748/HuaWaterED进行反馈\n" +
+                    Debug.LogError("如果你看到这条消息,请截图并在群里找HuaWaterED进行反馈\n" +
                         "加分出错:Perfect但未找到音符类型");
                     break;
             }
         }
-    }
-    [Serializable]
-    public class Chapter
-    {
-        public string chapterName;
-        public string[] musicPath;
     }
 }

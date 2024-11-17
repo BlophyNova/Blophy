@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Manager;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Data.ChartData
     public class ChartData
     {
         public MetaData metaData;
-        public Box[] boxes;
+        public List<Box> boxes;
         public GlobalData globalData;
         public Text[] texts;
     }

@@ -18,7 +18,7 @@ namespace Controller
         {
             Register();
             isLoading = false;
-            for (int i = 0; i < AssetManager.Instance.chartData.boxes.Length; i++)
+            for (int i = 0; i < AssetManager.Instance.chartData.boxes.Count; i++)
             {
                 BoxController boxController = InstBox(i);
                 boxControllers.Add(boxController);
@@ -39,9 +39,16 @@ namespace Controller
         {
             onRefreshBox += i =>
             {
-                BoxController tempBox = boxControllers[i];
-                Destroy(tempBox.gameObject);
-                boxControllers[i] = InstBox(i);
+                if (boxControllers.Count > i)
+                {
+                    BoxController tempBox = boxControllers[i];
+                    Destroy(tempBox.gameObject);
+                    boxControllers[i] = InstBox(i);
+                }
+                else
+                {
+                    boxControllers.Add(InstBox(i));
+                }
             };
         }
     }
