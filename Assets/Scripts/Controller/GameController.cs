@@ -25,6 +25,7 @@ namespace Controller
             }
             yield return new WaitForSeconds(3);//等8秒
             StateManager.Instance.IsStart = true;//设置状态IsStart为True
+            StateManager.Instance.IsPause = true;
         }
 
         private static BoxController InstBox(int i)
