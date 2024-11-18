@@ -10,7 +10,8 @@ namespace Manager
         private double dspLastPlayMusic;//上一次暂停后的时间
         private double offset;//偏移
         private double skipTime;//时间跳转
-        public double CurrentTime => musicPlayerTime.ElapsedMilliseconds / 1000d + skipTime;//当前时间
+        public double playSpeed = 1;
+        public double CurrentTime => musicPlayerTime.ElapsedMilliseconds * playSpeed / 1000d + skipTime;//当前时间
 
 
         /// <summary>
@@ -38,9 +39,41 @@ namespace Manager
         /// </summary>
         public void ContinuePlay()
         {
-            AssetManager.Instance.musicPlayer.UnPause();//播放器解除暂停状态
-            musicPlayerTime.Start();//音乐播放器的时间开始播放
+            double currentTime = CurrentTime;
+            if (currentTime < offset)
+            {
+
+
+                skipTime = currentTime;
+                musicPlayerTime.Reset();
+                AssetManager.Instance.musicPlayer.Stop();
+                AssetManager.Instance.musicPlayer.time = 0;
+
+                double tempOffset = (offset - currentTime) / playSpeed;
+
+
+                dspStartPlayMusic = AudioSettings.dspTime + tempOffset;//获取到开始播放的时间
+                dspLastPlayMusic = dspStartPlayMusic;//同步LastPlayMusic
+                AssetManager.Instance.musicPlayer.time = 0;
+                AssetManager.Instance.musicPlayer.PlayScheduled(dspStartPlayMusic);//在绝对的时间线上播放
+                musicPlayerTime.Start();//开始计时
+
+
+
+            }
+            else
+            {
+                //AssetManager.Instance.musicPlayer.UnPause();//播放器解除暂停状态
+                //musicPlayerTime.Start();//音乐播放器的时间开始播放
+
+
+                ResetTime();
+                StartPlay(offset);
+                //offset = GlobalData.Instance.chartEditData.offset;
+                SetTime(currentTime);
+            }
         }
+        public void SetOffset(double offset) => this.offset = offset;
 
         /// <summary>
         /// 暂停时间
@@ -56,9 +89,22 @@ namespace Manager
         /// <param name="time">跳转到哪里</param>
         public void SetTime(double time)
         {
+            //UnityEngine.Debug.LogError($"这里不对，时间不对");
+
             double timeDelta = time - CurrentTime;
-            AssetManager.Instance.musicPlayer.time += (float)timeDelta;
-            skipTime += timeDelta;
+            if (time < offset)
+            {
+                //StopMusic();
+                PausePlay();
+                skipTime += timeDelta;
+            }
+            else
+            {
+                //AssetManager.Instance.musicPlayer.UnPause();
+                //UnityEngine.Debug.Log($"AssetManager.Instance.musicPlayer.isPlaying:{AssetManager.Instance.musicPlayer.isPlaying}");
+                AssetManager.Instance.musicPlayer.time = (float)(time - offset);
+                skipTime += timeDelta;
+            }
         }
         /// <summary>
         /// 在当前时间的基础上加或者减时间
